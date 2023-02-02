@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     // public Transform player;
     public Rigidbody2D rb;
     public Joystick joystick;
+    public Joybutton joybutton;
     
     [SerializeField]
     private float speed;
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
 
     Vector2 movement;
+    bool attackModeOn =  false;
 
     void Update() {
         movement.x = Mathf.Sign(joystick.Horizontal) * (Mathf.Abs(joystick.Horizontal) > .2f ? 1 : 0) * speed;
@@ -24,6 +26,15 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
         animator.SetFloat("DirectionX", Mathf.Sign(movement.x));
 
+        if (joybutton.pressed) {
+            if (!attackModeOn) {
+                attackModeOn = true;
+                animator.SetBool("Attack", true);
+            }
+        } else {
+            attackModeOn = false;
+                animator.SetBool("Attack", false);
+        }
     }
 
     void FixedUpdate() {
