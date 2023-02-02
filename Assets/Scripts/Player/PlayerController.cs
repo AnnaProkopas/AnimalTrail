@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     // public Transform player;
     public Rigidbody2D rb;
     public Joystick joystick;
     public Joybutton joybutton;
+    public Text healthText;
+    public Text energyText;
     
     [SerializeField]
     private float speed;
@@ -16,7 +19,9 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
 
     Vector2 movement;
-    bool attackModeOn =  false;
+    bool attackModeOn = false;
+    int heath = 10;
+    int energy = 10;
 
     void Update() {
         movement.x = Mathf.Sign(joystick.Horizontal) * (Mathf.Abs(joystick.Horizontal) > .2f ? 1 : 0) * speed;
@@ -35,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
             attackModeOn = false;
                 animator.SetBool("Attack", false);
         }
+
+        healthText.text = "" + heath;
+        energyText.text = "" + energy;
     }
 
     void FixedUpdate() {
