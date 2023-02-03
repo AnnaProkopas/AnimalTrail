@@ -34,10 +34,8 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("DirectionX", Mathf.Sign(movement.x));
 
         if (joybutton.pressed) {
-            if (!isAttackModeOn) {
-                isAttackModeOn = true;
-                animator.SetBool("Attack", true);
-            }
+            isAttackModeOn = true;
+            animator.SetBool("Attack", true);
         } else {
             isAttackModeOn = false;
             animator.SetBool("Attack", false);

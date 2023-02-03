@@ -23,14 +23,15 @@ public class Mouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = direction * speed;
+        movement = direction * currentSpeed;
         movement.x = Mathf.Max(0, movement.x);
 
         float absX = Mathf.Abs(movement.x);
         float absY = Mathf.Abs(movement.y);
 
         animator.SetFloat("Speed", absX + absY);
-        if (absX > absY) {
+
+        if (absX >= absY) {
             animator.SetFloat("DirectionX", Mathf.Sign(movement.x));
         } else {
             animator.SetFloat("DirectionY", Mathf.Sign(movement.y));
@@ -38,10 +39,13 @@ public class Mouse : MonoBehaviour
     }
 
     public void RunAwayFrom(Vector2 playerPosition) {
-        Vector2 delta = rb.position - playerPosition;
-        direction.x = delta.x > 0 ? 1 : -1;
-        direction.y = delta.y > 0 ? 1 : -1;
+        direction.x = Mathf.Sign(rb.position.x - playerPosition.x);
+        direction.y = Mathf.Sign(rb.position.y - playerPosition.y);
         currentSpeed = speed;
+    }
+
+    public void FreezeFromFear() {
+        currentSpeed = 0;
     }
     
     void FixedUpdate() {
