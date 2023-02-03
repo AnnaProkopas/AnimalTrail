@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public Joystick joystick;
     public Joybutton joybutton;
     public Text healthText;
-    public Text energyText;
+    public EnergyManager energy;
     
     [SerializeField]
     private float speed;
@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     Vector2 movement;
     bool attackModeOn = false;
     int heath = 10;
-    int energy = 10;
 
     void Update() {
         movement.x = Mathf.Sign(joystick.Horizontal) * (Mathf.Abs(joystick.Horizontal) > .2f ? 1 : 0) * speed;
@@ -38,11 +37,14 @@ public class PlayerController : MonoBehaviour
             }
         } else {
             attackModeOn = false;
-                animator.SetBool("Attack", false);
+            animator.SetBool("Attack", false);
         }
 
         healthText.text = "" + heath;
-        energyText.text = "" + energy;
+        
+        if (energy.GetEnergyValue() == 0) {
+            animator.SetBool("Died", true);
+        }
     }
 
     void FixedUpdate() {
