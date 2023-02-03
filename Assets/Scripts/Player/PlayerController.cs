@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,10 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     Vector2 movement;
-    bool attackModeOn = false;
+    bool isAttackModeOn = false;
     int heath = 10;
+
+    const int MAX_HEALTH = 10;
 
     void Update() {
         movement.x = Mathf.Sign(joystick.Horizontal) * (Mathf.Abs(joystick.Horizontal) > .2f ? 1 : 0) * speed;
@@ -31,12 +34,12 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("DirectionX", Mathf.Sign(movement.x));
 
         if (joybutton.pressed) {
-            if (!attackModeOn) {
-                attackModeOn = true;
+            if (!isAttackModeOn) {
+                isAttackModeOn = true;
                 animator.SetBool("Attack", true);
             }
         } else {
-            attackModeOn = false;
+            isAttackModeOn = false;
             animator.SetBool("Attack", false);
         }
 
@@ -50,4 +53,26 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate() {
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }   
+
+    public bool IsAttackMode() {
+        return isAttackModeOn;
+    }
+
+    public void Eat(int energyPoints, int healthPoints) {
+        energy.AddEnergy(energyPoints);
+        heath = Math.Min(MAX_HEALTH, heath + healthPoints);
+    }
+
+    
+    void OnTriggerEnter2D (Collider2D other) {
+        Mouse mouse = other.gameObject.GetComponent<Mouse>();
+        if (mouse != null) {
+            if (isAttackModeOn) {
+                Eat(mouse.energyPoints, mouse.healthPoints);
+                Destroy(other.gameObject);
+            } else {
+                mouse.RunAwayFrom(rb.position);
+            }
+        }
+    }
 }
