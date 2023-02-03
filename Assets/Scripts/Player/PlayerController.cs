@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     bool isAttackModeOn = false;
     int health = 10;
     bool isDied = false;
+    bool isDying = false;
     bool isHitted = false;
     int foodCounter = 0;
     int maxFoodCounter;
@@ -41,13 +42,12 @@ public class PlayerController : MonoBehaviour
 
         healthText.text = "" + health;
         
-        if (energy.GetEnergyValue() == 0) {
+        if (energy.GetEnergyValue() == 0 || health == 0 || isDying) {
             isDied = true;
         }
 
         if (isHitted) {
             animator.SetBool("Attack", true);
-            rb.MovePosition(rb.position + (new Vector2(0, -1.0f)));
             return;
         }
 
@@ -61,7 +61,9 @@ public class PlayerController : MonoBehaviour
             isAttackModeOn = false;
             animator.SetBool("Attack", false);
         }
-        if (isAttackModeOn) {
+        if (isDied) {
+            animator.SetBool("Died", true);
+        } else if (isAttackModeOn) {
             animator.SetBool("Attack", true);
         } else {
             animator.SetFloat("Speed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
@@ -86,7 +88,7 @@ public class PlayerController : MonoBehaviour
     public void Eat(int energyPoints, int healthPoints) {
         energy.AddEnergy(energyPoints);
         health = Math.Min(MAX_HEALTH, health + healthPoints);
-        isDied = isDied || health <= 0;
+        isDying = isDying || health <= 0;
     }
 
     void OnTriggerExit2D (Collider2D other) {
@@ -112,8 +114,7 @@ public class PlayerController : MonoBehaviour
         if (car != null && !isHitted) {
             health = Math.Max(health - 4, 0);
             if (health <= 0) {
-                isDied = true;
-                Die();
+                isDying = true;
             }
             isAttackModeOn = true;
             isHitted = true;
