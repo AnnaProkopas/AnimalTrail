@@ -17,17 +17,18 @@ public class Mouse : MonoBehaviour
     private float speed = 1;
 
     Vector2 movement;
+    Vector2 directionSign;
     Vector2 direction;
     float currentSpeed = 0;
 
     // Update is called once per frame
     void Update()
     {
-        movement = direction * currentSpeed;
+        movement = directionSign * currentSpeed;
         movement.x = Mathf.Max(0, movement.x);
 
-        float absX = Mathf.Abs(movement.x);
-        float absY = Mathf.Abs(movement.y);
+        float absX = Mathf.Abs(direction.x);
+        float absY = Mathf.Abs(direction.y);
 
         animator.SetFloat("Speed", absX + absY);
 
@@ -39,8 +40,9 @@ public class Mouse : MonoBehaviour
     }
 
     public void RunAwayFrom(Vector2 playerPosition) {
-        direction.x = Mathf.Sign(rb.position.x - playerPosition.x);
-        direction.y = Mathf.Sign(rb.position.y - playerPosition.y);
+        direction = rb.position - playerPosition;
+        directionSign.x = Mathf.Sign(direction.x);
+        directionSign.y = Mathf.Sign(direction.y);
         currentSpeed = speed;
     }
 

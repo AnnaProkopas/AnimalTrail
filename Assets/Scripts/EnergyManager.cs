@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class EnergyManager : MonoBehaviour
 {
-    public Text textEnergy;
-
+    
+    [SerializeField]
+    private Text textEnergy;
     [SerializeField]
     private int maxEnergy;
     
@@ -24,7 +25,7 @@ public class EnergyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         // Load();
-        totalEnergy = 10;
+        totalEnergy = maxEnergy;
         lastAddedTime = DateTime.Now;
         nextEnergyTime = AddDuration(DateTime.Now, restoreDuration * 2);
 
