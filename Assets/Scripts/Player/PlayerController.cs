@@ -35,34 +35,38 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update() {
-        if (!isDied) {
-            movement.x = Mathf.Sign(joystick.Horizontal) * (Mathf.Abs(joystick.Horizontal) > .2f ? 1 : 0) * speed;
-            movement.y = Mathf.Sign(joystick.Vertical) * (Mathf.Abs(joystick.Vertical) > .2f ? 1 : 0) * speed;
+        if (isDied) {
+            return;
+        }
 
+        healthText.text = "" + health;
+        
+        if (energy.GetEnergyValue() == 0) {
+            isDied = true;
+        }
 
-            if (joybutton.pressed) {
-                isAttackModeOn = true;
-            } else {
-                isAttackModeOn = false;
-                animator.SetBool("Attack", false);
-            }
-
-            healthText.text = "" + health;
-            
-            if (energy.GetEnergyValue() == 0) {
-                isDied = true;
-            }
-
-            if (isDied) {
-                animator.SetBool("Died", true);
-            } else if (isAttackModeOn || isHitted) {
-                animator.SetBool("Attack", true);
-            } else {
-                animator.SetFloat("Speed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
-                animator.SetFloat("DirectionX", Mathf.Sign(movement.x));
-            }
-
+        if (isHitted) {
+            animator.SetBool("Attack", true);
             isHitted = false;
+            // rb.MovePosition(rb.position + (new Vector2(0, -1.0f)));
+            return;
+        }
+
+        movement.x = Mathf.Sign(joystick.Horizontal) * (Mathf.Abs(joystick.Horizontal) > .2f ? 1 : 0) * speed;
+        movement.y = Mathf.Sign(joystick.Vertical) * (Mathf.Abs(joystick.Vertical) > .2f ? 1 : 0) * speed;
+
+
+        if (joybutton.pressed) {
+            isAttackModeOn = true;
+        } else {
+            isAttackModeOn = false;
+            animator.SetBool("Attack", false);
+        }
+        if (isAttackModeOn) {
+            animator.SetBool("Attack", true);
+        } else {
+            animator.SetFloat("Speed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
+            animator.SetFloat("DirectionX", Mathf.Sign(movement.x));
         }
     }
 
@@ -71,6 +75,10 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
         }
     }   
+
+    void Die() {
+        animator.SetBool("Died", true);
+    }
 
     public bool IsAttackMode() {
         return isAttackModeOn;
@@ -96,8 +104,11 @@ public class PlayerController : MonoBehaviour
         }
         Car car = other.gameObject.GetComponent<Car>();
         if (car != null) {
-            health -= 3;
-            isDied = health == 0;
+            health = Math.Max(health - 4, 0);
+            if (health <= 0) {
+                isDied = true;
+                Die();
+            }
             isAttackModeOn = true;
             isHitted = true;
         } else {
