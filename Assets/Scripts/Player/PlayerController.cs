@@ -47,8 +47,7 @@ public class PlayerController : MonoBehaviour
 
         if (isHitted) {
             animator.SetBool("Attack", true);
-            isHitted = false;
-            // rb.MovePosition(rb.position + (new Vector2(0, -1.0f)));
+            rb.MovePosition(rb.position + (new Vector2(0, -1.0f)));
             return;
         }
 
@@ -87,9 +86,16 @@ public class PlayerController : MonoBehaviour
     public void Eat(int energyPoints, int healthPoints) {
         energy.AddEnergy(energyPoints);
         health = Math.Min(MAX_HEALTH, health + healthPoints);
+        isDied = isDied || health <= 0;
     }
 
-    
+    void OnTriggerExit2D (Collider2D other) {
+        Car car = other.gameObject.GetComponent<Car>();
+        if (car != null) {
+            isHitted = false;
+        } 
+    }
+
     void OnTriggerEnter2D (Collider2D other) {
         Mouse mouse = other.gameObject.GetComponent<Mouse>();
         if (mouse != null) {
@@ -103,7 +109,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         Car car = other.gameObject.GetComponent<Car>();
-        if (car != null) {
+        if (car != null && !isHitted) {
             health = Math.Max(health - 4, 0);
             if (health <= 0) {
                 isDied = true;
