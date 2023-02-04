@@ -7,14 +7,18 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    // public Transform player;
-    public Rigidbody2D rb;
-    public Joystick joystick;
-    public Joybutton joybutton;
-    public Text healthText;
-    public Text foodCounterText;
-    public EnergyManager energy;
-    
+    [SerializeField]
+    private Rigidbody2D rb;
+    [SerializeField]
+    private Joystick joystick;
+    [SerializeField]
+    private Joybutton joybutton;
+    [SerializeField]
+    private Text healthText;
+    [SerializeField]
+    private Text foodCounterText;
+    [SerializeField]
+    private EnergyManager energy;
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -31,11 +35,16 @@ public class PlayerController : MonoBehaviour
 
     const int MAX_HEALTH = 10;
 
+    public void goToHomeScene() {
+        Destroy(this.gameObject);
+        SceneManager.LoadScene (0);
+    }
+
     private void Start() {
         Load();
     }
 
-    void Update() {
+    private void Update() {
         if (isDied) {
             return;
         }
@@ -54,13 +63,8 @@ public class PlayerController : MonoBehaviour
         movement.x = Mathf.Sign(joystick.Horizontal) * (Mathf.Abs(joystick.Horizontal) > .2f ? 1 : 0) * speed;
         movement.y = Mathf.Sign(joystick.Vertical) * (Mathf.Abs(joystick.Vertical) > .2f ? 1 : 0) * speed;
 
+        isAttackModeOn = joybutton.pressed;
 
-        if (joybutton.pressed) {
-            isAttackModeOn = true;
-        } else {
-            isAttackModeOn = false;
-            animator.SetBool("Attack", false);
-        }
         if (isDied) {
             animator.SetBool("Died", true);
         } else if (isAttackModeOn) {
@@ -68,37 +72,23 @@ public class PlayerController : MonoBehaviour
         } else {
             animator.SetFloat("Speed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
             animator.SetFloat("DirectionX", Mathf.Sign(movement.x));
+            animator.SetBool("Attack", false);
         }
     }
 
-    void FixedUpdate() {
+    private void FixedUpdate() {
         if (!isDied) {
             rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
         }
-    }   
-
-    void Die() {
-        animator.SetBool("Died", true);
     }
 
-    public bool IsAttackMode() {
-        return isAttackModeOn;
-    }
-
-    public void Eat(int energyPoints, int healthPoints) {
+    private void Eat(int energyPoints, int healthPoints) {
         energy.AddEnergy(energyPoints);
         health = Math.Min(MAX_HEALTH, health + healthPoints);
         isDying = isDying || health <= 0;
     }
 
-    void OnTriggerExit2D (Collider2D other) {
-        Car car = other.gameObject.GetComponent<Car>();
-        if (car != null) {
-            isHitted = false;
-        } 
-    }
-
-    void OnTriggerEnter2D (Collider2D other) {
+    private void OnTriggerEnter2D (Collider2D other) {
         Mouse mouse = other.gameObject.GetComponent<Mouse>();
         if (mouse != null) {
             if (isAttackModeOn) {
@@ -133,16 +123,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D (Collider2D other) {
+        Car car = other.gameObject.GetComponent<Car>();
+        if (car != null) {
+            isHitted = false;
+        } 
+    }
+
     private void icreaseFoodCounter() {
         foodCounter++;
         maxFoodCounter = Math.Max(foodCounter, maxFoodCounter);
         foodCounterText.text = "" + foodCounter + (maxFoodCounter > foodCounter ? ("(" + maxFoodCounter + ")") : "");
         Save();
-    }
-
-    public void goToHomeScene() {
-        Destroy(this.gameObject);
-        SceneManager.LoadScene (0);
     }
 
     private void Load() {
