@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarSnackSpawner : MonoBehaviour
+public class CarSnackSpawner : MonoBehaviour, ITriggeredObject
 {
     public GameObject cake;
 
-    // Start is called before the first frame update
-    void Start()
+    private TriggeredObjectType type = TriggeredObjectType.CarFoodSpawner;
+
+    public void OnObjectTriggerEnter(PlayerController player, PlayerState state) 
     {
-        
+        switch (state)
+        {
+            case PlayerState.Dead:
+            case PlayerState.Dying:
+            case PlayerState.Attack:
+                break;
+            default:
+                Spawn(player.GetPosition() + (new Vector2(2, 0)));
+                break;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Spawn(Vector2 position) 
     {
-        
-    }
-
-    public void Spawn(Vector2 position) {
         Instantiate(cake, position, Quaternion.identity);
     }
 }

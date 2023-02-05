@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Joystick joystick;
     [SerializeField]
-    private Joybutton joybutton;
-    [SerializeField]
     private Text healthText;
     [SerializeField]
     private Text foodCounterText;
@@ -24,124 +22,159 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
-    Vector2 movement;
-    bool isAttackModeOn = false;
-    int health = 10;
-    bool isDied = false;
-    bool isDying = false;
-    bool isHitted = false;
-    int foodCounter = 0;
-    int maxFoodCounter;
+    private PlayerState currentState;
+    private Vector2 movement;
 
-    const int MAX_HEALTH = 10;
+    private int foodCounter = 0;
+    private int recordValueForFoodCounter;
 
-    public void goToHomeScene() {
-        Destroy(this.gameObject);
-        SceneManager.LoadScene (0);
+    private int health = 10;
+    private const int MaxHealth = 10;
+
+    private void Start()
+    {
+        LoadRecordFoodCounter();
     }
 
-    private void Start() {
-        Load();
-    }
-
-    private void Update() {
-        if (isDied) {
+    private void Update()
+    {
+        switch (currentState)
+        {
+        case PlayerState.Dead:
             return;
-        }
-
-        healthText.text = "" + health;
-        
-        if (energy.GetEnergyValue() == 0 || health == 0 || isDying) {
-            isDied = true;
-        }
-
-        if (isHitted) {
-            animator.SetBool("Attack", true);
+        case PlayerState.Dying:
+            movement = new Vector2(0, 0);
+            animator.SetInteger("State", (int)PlayerState.Dead);
             return;
         }
 
         movement.x = Mathf.Sign(joystick.Horizontal) * (Mathf.Abs(joystick.Horizontal) > .2f ? 1 : 0) * speed;
         movement.y = Mathf.Sign(joystick.Vertical) * (Mathf.Abs(joystick.Vertical) > .2f ? 1 : 0) * speed;
+        float absMovement = Mathf.Abs(movement.x) + Mathf.Abs(movement.y);
 
-        isAttackModeOn = joybutton.pressed;
-
-        if (isDied) {
-            animator.SetBool("Died", true);
-        } else if (isAttackModeOn) {
-            animator.SetBool("Attack", true);
-        } else {
-            animator.SetFloat("Speed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
-            animator.SetFloat("DirectionX", Mathf.Sign(movement.x));
-            animator.SetBool("Attack", false);
-        }
+        animator.SetInteger("State", (int)currentState);
+        animator.SetFloat("Speed", absMovement);
+        animator.SetFloat("DirectionX", Mathf.Sign(movement.x));
     }
 
-    private void FixedUpdate() {
-        if (!isDied) {
+    private void FixedUpdate() 
+    {
+        if (currentState != PlayerState.Dead) 
+        {
             rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
         }
     }
 
-    private void Eat(int energyPoints, int healthPoints) {
-        energy.AddEnergy(energyPoints);
-        health = Math.Min(MAX_HEALTH, health + healthPoints);
-        isDying = isDying || health <= 0;
-    }
-
-    private void OnTriggerEnter2D (Collider2D other) {
-        Mouse mouse = other.gameObject.GetComponent<Mouse>();
-        if (mouse != null) {
-            if (isAttackModeOn) {
-                Eat(mouse.energyPoints, mouse.healthPoints);
-                Destroy(other.gameObject);
-
-                icreaseFoodCounter();
-            } else {
-                mouse.RunAwayFrom(rb.position);
-            }
-        }
-        Car car = other.gameObject.GetComponent<Car>();
-        if (car != null && !isHitted) {
-            health = Math.Max(health - 4, 0);
-            if (health <= 0) {
-                isDying = true;
-            }
-            isAttackModeOn = true;
-            isHitted = true;
-        } else {
-            CarSnackSpawner cSS = other.gameObject.GetComponent<CarSnackSpawner>();
-            if (cSS != null) {
-                cSS.Spawn(rb.position + (new Vector2(2, 0)));
-            }
-        }
-        Cake cake = other.gameObject.GetComponent<Cake>();
-        if (cake != null) {
-            Eat(cake.energyPoints, cake.healthPoints);
-            Destroy(other.gameObject);
-
-            icreaseFoodCounter();
+    private void OnTriggerEnter2D (Collider2D other) 
+    {
+        ITriggeredObject otherObject = other.gameObject.GetComponent<ITriggeredObject>();
+        if (otherObject != null) 
+        {
+            otherObject.OnObjectTriggerEnter(this, currentState);
         }
     }
 
-    private void OnTriggerExit2D (Collider2D other) {
-        Car car = other.gameObject.GetComponent<Car>();
-        if (car != null) {
-            isHitted = false;
-        } 
+    private void OnTriggerExit2D (Collider2D other) 
+    {
+        ITriggeredObject otherObject = other.gameObject.GetComponent<ITriggeredObject>();
+        if (otherObject != null) 
+        {
+            otherObject.OnObjectTriggerExit(this, currentState);
+        }
     }
 
-    private void icreaseFoodCounter() {
+    private void IncreaseFoodCounter() 
+    {
         foodCounter++;
-        maxFoodCounter = Math.Max(foodCounter, maxFoodCounter);
-        foodCounterText.text = "" + foodCounter + (maxFoodCounter > foodCounter ? ("(" + maxFoodCounter + ")") : "");
-        Save();
+        recordValueForFoodCounter = Math.Max(foodCounter, recordValueForFoodCounter);
+        foodCounterText.text = "" + foodCounter + (recordValueForFoodCounter > foodCounter ? ("(" + recordValueForFoodCounter + ")") : "");
+        SaveRecordFoodCounter();
     }
 
-    private void Load() {
-        maxFoodCounter = PlayerPrefs.GetInt("maxFoodCounter", 0);
+    private void LoadRecordFoodCounter() 
+    {
+        recordValueForFoodCounter = PlayerPrefs.GetInt("recordValueForFoodCounter", 0);
     }
 
-    private void Save() {
-        PlayerPrefs.SetInt("maxFoodCounter", maxFoodCounter);
+    private void SaveRecordFoodCounter() 
+    {
+        PlayerPrefs.SetInt("recordValueForFoodCounter", recordValueForFoodCounter);
+    }
+
+    private bool IsReadyForDeath()
+    {
+        return health == 0 || energy.GetEnergyValue() == 0;
+    }
+
+    private void StartDyingProcess()
+    {
+        if (currentState != PlayerState.Dead) currentState = PlayerState.Dying;
+    }
+
+    private void IfNotDyingSetState(PlayerState state)
+    {
+        switch(currentState)
+        {
+        case PlayerState.Dead:
+        case PlayerState.Dying:
+            break;
+        default:
+            currentState = state;
+            break;
+        }
+    }
+
+    private void ChangeHealth(int value) 
+    {
+        health = Math.Min(Math.Max(health + value, 0), MaxHealth);
+        healthText.text = "" + health;
+        if (IsReadyForDeath())
+        {
+            StartDyingProcess();
+        }
+    }
+
+    public Vector2 GetPosition() 
+    {
+        return rb.position;
+    }
+
+    public void GoToHomeScene() 
+    {
+        Destroy(this.gameObject);
+        SceneManager.LoadScene (0);
+    }
+
+    public void Eat(int energyPoints, int healthPoints) 
+    {
+        energy.Add(energyPoints);
+        ChangeHealth((healthPoints));
+        IncreaseFoodCounter();
+    }
+
+    public void OnEnergyIsOver()
+    {
+        StartDyingProcess();
+    }
+
+    public void OnStartTakingDamage(int damage)
+    {
+        ChangeHealth(-damage);
+        IfNotDyingSetState(PlayerState.Wounded);
+    }
+
+    public void OnFinishTakingDamage()
+    { 
+        IfNotDyingSetState(PlayerState.Idle);
+    }
+
+    public void EnableAttackMode()
+    {
+        IfNotDyingSetState(PlayerState.Attack);
+    }
+
+    public void DisableAttackMode()
+    {
+        IfNotDyingSetState(PlayerState.Idle);
     }
 }

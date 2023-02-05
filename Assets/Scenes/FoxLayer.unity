@@ -1655,7 +1655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f67174ad8530a4e832e78835c97027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed: 0
+  player: {fileID: 1775384533}
 --- !u!114 &997067487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11673,6 +11673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e66e49b127b4c94da63432596831301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1775384533}
   textEnergy: {fileID: 1943829868}
   maxEnergy: 10
 --- !u!4 &1622393068
@@ -12020,7 +12021,7 @@ MonoBehaviour:
   - {fileID: 895030002}
   - {fileID: 175862931}
   - {fileID: 101673942}
-  maxSpawns: 3
+  maxAmountFoodOnScene: 3
   worldBoundary: {fileID: 953777824}
   spawnStartTime: 5
 --- !u!4 &1813353198

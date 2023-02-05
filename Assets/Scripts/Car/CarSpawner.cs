@@ -10,29 +10,27 @@ public class CarSpawner : MonoBehaviour
     private GameObject worldBoundary;
     [SerializeField]
     private Transform spawnPoint;
-
     
-    private Car currentCar;
-    private Vector2 maxPoint;
+    private Car? currentCar = null;
+    private float maxPointX;
 
-    // Start is called before the first frame update
     void Start()
     {
         PolygonCollider2D _polygonCollider = worldBoundary.GetComponent<PolygonCollider2D>();
         foreach (var point in _polygonCollider.points)
         {
-            maxPoint.x = Mathf.Max(maxPoint.x, point.x);
+            maxPointX = Mathf.Max(maxPointX, point.x);
         }
+
+        maxPointX += 3.0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (currentCar == null) {
+        if (currentCar == null || currentCar.transform.position.x  > maxPointX) 
+        {
+            if (currentCar != null) Destroy(currentCar.gameObject);
             currentCar = Instantiate(car, spawnPoint.position, Quaternion.identity);
-
-        } else if (currentCar.transform.position.x  > maxPoint.x) {
-            Destroy(currentCar.gameObject);
         }
     }
 }

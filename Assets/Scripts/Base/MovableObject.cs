@@ -13,13 +13,13 @@ public class MovableObject : MonoBehaviour
     protected Vector2 direction = new Vector2(0, 0);
     protected Vector2 movement;
 
-    // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
         movement = direction * speed;
     }
     
-    protected void FixedUpdate() {
+    protected void FixedUpdate() 
+    {
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }   
 }

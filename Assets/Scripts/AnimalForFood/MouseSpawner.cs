@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class MouseSpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] food;
     [SerializeField]
     public Transform[] spawnPoints;
     [SerializeField]
-    public int maxSpawns;
+    public int maxAmountFoodOnScene;
     [SerializeField]
     private GameObject worldBoundary;
     [SerializeField]
@@ -22,7 +22,8 @@ public class Spawner : MonoBehaviour
     private Vector2 minPoint;
     private Vector2 maxPoint;
 
-    private void Start() {
+    private void Start() 
+    {
         timeBetweenSpawn = spawnStartTime;
         currentFood = new List<GameObject>();
         PolygonCollider2D _polygonCollider = worldBoundary.GetComponent<PolygonCollider2D>();
@@ -35,20 +36,34 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void Update() {
-        if (timeBetweenSpawn <= 0) {
-            if (currentFood.Count > 0) {
-                currentFood = currentFood.Where(val => val != null).ToList();
+    private void Update() 
+    {
+        if (timeBetweenSpawn <= 0)
+        {
+            if (currentFood.Count > 0) 
+            {
+                List<GameObject> newFoodList = new List<GameObject>();
                 foreach (var item in currentFood)
                 {
-                    Vector2 position = item.transform.position;
-                    if (position.x < minPoint.x || position.y < minPoint.y || position.x > maxPoint.x || position.y > maxPoint.y) {
-                        Destroy(item);
+                    if (item != null)
+                    {
+                        Vector2 position = item.transform.position;
+                        if (position.x < minPoint.x || position.y < minPoint.y || position.x > maxPoint.x ||
+                            position.y > maxPoint.y)
+                        {
+                            Destroy(item);
+                        }
+                        else
+                        {
+                            newFoodList.Add(item);
+                        }
                     }
                 }
+                currentFood = newFoodList;
             }
 
-            if (currentFood.Count < maxSpawns) {
+            if (currentFood.Count < maxAmountFoodOnScene) 
+            {
                 int foodInd = Random.Range(0, food.Length);
                 int positionInd = Random.Range(0, spawnPoints.Length);
                 currentFood.Add(Instantiate(food[foodInd], spawnPoints[positionInd].transform.position, Quaternion.identity));
