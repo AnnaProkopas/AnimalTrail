@@ -8,7 +8,7 @@ public class Car : MovableObject, ITriggeredObject
 
     public void OnObjectTriggerEnter(PlayerController player, PlayerState state) 
     {
-        player.OnStartTakingDamage(4);
+        player.OnStartTakingDamage(12);
     }
     
     public void OnObjectTriggerExit(PlayerController player, PlayerState state) 

@@ -1,6 +1,6 @@
 public enum TriggeredObjectType
-{
-	Default,
+{ 
+    Default,
     Mouse,
     Cake,
     Car,

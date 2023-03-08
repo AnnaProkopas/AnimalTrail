@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private PlayerState currentState;
     private Vector2 movement;
 
+    private PlayerRatingService ratingService;
     private int foodCounter = 0;
     private int recordValueForFoodCounter;
 
@@ -33,7 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        LoadRecordFoodCounter();
+        ratingService = new PlayerRatingService();
+        recordValueForFoodCounter = ratingService.GetRecordFoodCounter();
     }
 
     private void Update()
@@ -88,17 +88,7 @@ public class PlayerController : MonoBehaviour
         foodCounter++;
         recordValueForFoodCounter = Math.Max(foodCounter, recordValueForFoodCounter);
         foodCounterText.text = "" + foodCounter + (recordValueForFoodCounter > foodCounter ? ("(" + recordValueForFoodCounter + ")") : "");
-        SaveRecordFoodCounter();
-    }
-
-    private void LoadRecordFoodCounter() 
-    {
-        recordValueForFoodCounter = PlayerPrefs.GetInt("recordValueForFoodCounter", 0);
-    }
-
-    private void SaveRecordFoodCounter() 
-    {
-        PlayerPrefs.SetInt("recordValueForFoodCounter", recordValueForFoodCounter);
+        ratingService.SetRecordFoodCounter(recordValueForFoodCounter);
     }
 
     private bool IsReadyForDeath()
@@ -141,6 +131,16 @@ public class PlayerController : MonoBehaviour
 
     public void GoToHomeScene() 
     {
+        switch (currentState)
+        {
+            case PlayerState.Dead:
+            case PlayerState.Dying:
+                ratingService.AddRecord(foodCounter);
+                break;
+            default:
+                break;
+        }
+
         Destroy(this.gameObject);
         SceneManager.LoadScene (0);
     }

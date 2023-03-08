@@ -11977,7 +11977,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1775384530}
   joystick: {fileID: 669447037}
-  joybutton: {fileID: 997067486}
   healthText: {fileID: 310908842}
   foodCounterText: {fileID: 436570225}
   energy: {fileID: 1622393067}
@@ -12496,6 +12495,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3043959919100028139, guid: 21f2422ae8f78664f84299298fb04fe0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043959919102915848, guid: 21f2422ae8f78664f84299298fb04fe0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043959919102915849, guid: 21f2422ae8f78664f84299298fb04fe0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043959919102915851, guid: 21f2422ae8f78664f84299298fb04fe0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3043959919102915853, guid: 21f2422ae8f78664f84299298fb04fe0, type: 3}
       propertyPath: m_Name
       value: Mouse
