@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public delegate CollisionResult AttackDelegate();
+
+    public AttackDelegate onAttack;
+    
     [SerializeField]
     private Rigidbody2D rb;
     [SerializeField]
@@ -171,6 +175,11 @@ public class PlayerController : MonoBehaviour
     public void EnableAttackMode()
     {
         IfNotDyingSetState(PlayerState.Attack);
+        if (onAttack != null)
+        {
+            CollisionResult result = onAttack.Invoke();
+            Eat(result.energyPoints, result.healthPoints);
+        }
     }
 
     public void DisableAttackMode()

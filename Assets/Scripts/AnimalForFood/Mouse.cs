@@ -27,8 +27,14 @@ public class Mouse : MovableObject, ITriggeredObject
                 break;
             default:
                 RunAwayFrom(player.GetPosition());
+                player.onAttack += OnAttack;
                 break;
         }
+    }
+
+    public void OnObjectTriggerExit(PlayerController player, PlayerState state)
+    {
+        player.onAttack -= OnAttack;
     }
 
     protected override void Update()
@@ -54,5 +60,16 @@ public class Mouse : MovableObject, ITriggeredObject
         directionSign.x = Mathf.Max(0, Mathf.Sign(direction.x));
         directionSign.y = Mathf.Sign(direction.y);
         currentSpeed = speed;
+    }
+
+    private CollisionResult OnAttack()
+    {
+        Destroy(this.gameObject);
+        
+        
+        CollisionResult res = new CollisionResult();
+        res.healthPoints = healthPoints;
+        res.energyPoints = energyPoints;
+        return res;
     }
 }

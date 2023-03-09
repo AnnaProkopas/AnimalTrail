@@ -22,7 +22,6 @@ public class RatingList : MonoBehaviour
         {
             for (int i = ratingList.Count - 1; i >= 0; i--)
             {
-                Debug.Log(i);
                 AddItem(ratingList[i].date + " " + ratingList[i].value);
             }
         }
