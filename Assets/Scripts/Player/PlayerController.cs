@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private PlayerRatingService ratingService;
     private int foodCounter = 0;
     private int recordValueForFoodCounter;
+    private int lastDirectionX = 0;
 
     private int health = 10;
     private const int MaxHealth = 10;
@@ -55,10 +56,16 @@ public class PlayerController : MonoBehaviour
         movement.x = Mathf.Sign(joystick.Horizontal) * (Mathf.Abs(joystick.Horizontal) > .2f ? 1 : 0) * speed;
         movement.y = Mathf.Sign(joystick.Vertical) * (Mathf.Abs(joystick.Vertical) > .2f ? 1 : 0) * speed;
         float absMovement = Mathf.Abs(movement.x) + Mathf.Abs(movement.y);
+        int signMovementX = (int)Mathf.Sign(movement.x);
 
         animator.SetInteger("State", (int)currentState);
         animator.SetFloat("Speed", absMovement);
-        animator.SetFloat("DirectionX", Mathf.Sign(movement.x));
+        animator.SetFloat("DirectionX", signMovementX);
+        animator.SetFloat("LastDirectionX", lastDirectionX);
+        if (movement.x != 0)
+        {
+            lastDirectionX = signMovementX;
+        }
     }
 
     private void FixedUpdate() 
@@ -175,6 +182,7 @@ public class PlayerController : MonoBehaviour
     public void EnableAttackMode()
     {
         IfNotDyingSetState(PlayerState.Attack);
+        Debug.Log("Attack");
         if (onAttack != null)
         {
             CollisionResult result = onAttack.Invoke();

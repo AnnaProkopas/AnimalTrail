@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Mouse : MovableObject, ITriggeredObject
 {
@@ -17,9 +14,9 @@ public class Mouse : MovableObject, ITriggeredObject
 
     private TriggeredObjectType type = TriggeredObjectType.Mouse;
 
-    public void OnObjectTriggerEnter(PlayerController player, PlayerState state) 
+    public void OnObjectTriggerEnter(PlayerController player, PlayerState playerState) 
     {
-        switch (state)
+        switch (playerState)
         {
             case PlayerState.Attack:
                 player.Eat(energyPoints, healthPoints);
@@ -65,8 +62,7 @@ public class Mouse : MovableObject, ITriggeredObject
     private CollisionResult OnAttack()
     {
         Destroy(this.gameObject);
-        
-        
+
         CollisionResult res = new CollisionResult();
         res.healthPoints = healthPoints;
         res.energyPoints = energyPoints;

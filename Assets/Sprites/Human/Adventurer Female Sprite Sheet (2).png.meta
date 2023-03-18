@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0eb86c67e81e4174fa451fd725ada1a7
+guid: f227b540b1113a94b837f1b1b94974b7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,7 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -102,7 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,86 +113,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fox Sprite Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78f2ccdef127d0d47bc0387cb040162e
-      internalID: -1678317204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b20bc906b89ff2143b23c96b2ca4f55a
-      internalID: -274134663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ecbf5ad61490f854cb81f4c92561c584
-      internalID: -2049375911
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_3
+      name: Adventurer Female Sprite Sheet (2)_0
       rect:
         serializedVersion: 2
         x: 96
@@ -206,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d045200399be0bb4c8beae94957117b9
-      internalID: -88110315
+      spriteID: 2f975f3d7ec52b9488acc9f37fb750ee
+      internalID: 514425530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_4
+      name: Adventurer Female Sprite Sheet (2)_1
       rect:
         serializedVersion: 2
         x: 128
@@ -227,18 +152,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 308c707f9a690534295d07cbcb5d989d
-      internalID: 1567732840
+      spriteID: fc040e6d0c2c3524b85a33269a290a36
+      internalID: -1330786475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_5
+      name: Adventurer Female Sprite Sheet (2)_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
+        x: 160
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -248,14 +173,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 952ae85db4445494bb9ef6c487711807
-      internalID: 135971601
+      spriteID: 3533a647577df11489f956d40b627eaf
+      internalID: 808131562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_6
+      name: Adventurer Female Sprite Sheet (2)_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f702ddedb80a34ca934fbee1dcffe8
+      internalID: 857668640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Female Sprite Sheet (2)_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f351999e85819b49ab771cdb142c525
+      internalID: 1417726814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Female Sprite Sheet (2)_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aefaba312ee77a44bc5d85213331826
+      internalID: 241559395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Female Sprite Sheet (2)_6
       rect:
         serializedVersion: 2
         x: 32
@@ -269,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ed19e58d7811de4abb159e9f1f042f5
-      internalID: -1430111374
+      spriteID: bbc67583e0839284aa2cd880089e254d
+      internalID: -1432793557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_7
+      name: Adventurer Female Sprite Sheet (2)_7
       rect:
         serializedVersion: 2
         x: 64
@@ -290,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e370d22e7af71e4b9164a38bbe21d9a
-      internalID: 1199006407
+      spriteID: ba365050ec51574408e6acb6fed3f41b
+      internalID: -145506842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_8
+      name: Adventurer Female Sprite Sheet (2)_8
       rect:
         serializedVersion: 2
         x: 96
@@ -311,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b8d55e9154f6a3479dae3ca60c99d90
-      internalID: -1173078540
+      spriteID: 1b420a4b7dcb2cb4186beab657b02399
+      internalID: 1749750322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_9
+      name: Adventurer Female Sprite Sheet (2)_9
       rect:
         serializedVersion: 2
         x: 128
@@ -332,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a3ab366acbd7d7498aea080553578fa
-      internalID: 1907653306
+      spriteID: cf716d8ab3854a640ba90fbc683de918
+      internalID: -1694677895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_10
+      name: Adventurer Female Sprite Sheet (2)_10
       rect:
         serializedVersion: 2
         x: 160
@@ -353,14 +341,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82b87c0eb7465c447a9b11ef292d97d5
-      internalID: -1728247646
+      spriteID: a730f23508bec8c42b8da065ee660dff
+      internalID: 1801455286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_11
+      name: Adventurer Female Sprite Sheet (2)_11
       rect:
         serializedVersion: 2
         x: 192
@@ -374,14 +362,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13858fa5099054144ad38db2d257789a
-      internalID: -1444831388
+      spriteID: a1f11f0da604985418e5f9fc1064e8f1
+      internalID: 1709088516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_12
+      name: Adventurer Female Sprite Sheet (2)_12
       rect:
         serializedVersion: 2
         x: 224
@@ -395,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de5fe08358df949458506095e7825d09
-      internalID: 955675835
+      spriteID: 278aa935a40fb9844801cffbdbc30b74
+      internalID: -1154494327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_13
+      name: Adventurer Female Sprite Sheet (2)_13
       rect:
         serializedVersion: 2
         x: 256
@@ -416,119 +404,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9c6275291fa17a47a7665a9e11e777a
-      internalID: -431516358
+      spriteID: 04b52d42d1da915438ce095ad24b135d
+      internalID: 504039263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4849b0803e2668144a0618ea7d6371d2
-      internalID: 563420244
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe97ab8e40df0104894b6ed49355e0a3
-      internalID: -2011497282
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d83c1e18572ff048822fddfac5ffa9e
-      internalID: 1516636738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_17
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e52c7d57f990d194ba1f808809cd30ab
-      internalID: -2100256186
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_18
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5039a40628704af43b690f754aec9e80
-      internalID: 1802640096
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_19
+      name: Adventurer Female Sprite Sheet (2)_14
       rect:
         serializedVersion: 2
         x: 0
@@ -542,14 +425,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac604c98ac0b95b4996fb54bea597da3
-      internalID: -1070036077
+      spriteID: 6bdda6ad82f81cc41a61e44f838d0db4
+      internalID: -641140725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_20
+      name: Adventurer Female Sprite Sheet (2)_15
       rect:
         serializedVersion: 2
         x: 32
@@ -563,14 +446,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 743eeb75d23d55d49badef23f8be00e0
-      internalID: -742981036
+      spriteID: dfbcfcfac816bf648abd62ffe5be9524
+      internalID: -1758309765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_21
+      name: Adventurer Female Sprite Sheet (2)_16
       rect:
         serializedVersion: 2
         x: 64
@@ -584,14 +467,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a138bbbd7c2e18243b729ddd1e49a3b7
-      internalID: -530631973
+      spriteID: 5f1988524da61c140ba98448846ea695
+      internalID: 887467861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_22
+      name: Adventurer Female Sprite Sheet (2)_17
       rect:
         serializedVersion: 2
         x: 96
@@ -605,14 +488,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e811b704393388d478d720b53312c5a6
-      internalID: -1425847523
+      spriteID: 1aab9d28f6c2d8c4b9bce1ca946f6678
+      internalID: -306219388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_23
+      name: Adventurer Female Sprite Sheet (2)_18
       rect:
         serializedVersion: 2
         x: 128
@@ -626,14 +509,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cd01d186dea1e641a28d4f8fdb24cf1
-      internalID: -900548105
+      spriteID: b7ffb507e7e9b834ebad8e4af359cb15
+      internalID: -1169741336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_24
+      name: Adventurer Female Sprite Sheet (2)_19
       rect:
         serializedVersion: 2
         x: 160
@@ -647,14 +530,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f75920e666a1b6043bbf38245803c5d5
-      internalID: 2145872063
+      spriteID: 4f3e657bed060af438c724c63b22c244
+      internalID: -1427402738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_25
+      name: Adventurer Female Sprite Sheet (2)_20
       rect:
         serializedVersion: 2
         x: 192
@@ -668,14 +551,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 556abd3c80a23034aa32c30c8b4f69d0
-      internalID: -1776201637
+      spriteID: a302f5d34ebe25a4fbaf7b37e1f77e90
+      internalID: -218101581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_26
+      name: Adventurer Female Sprite Sheet (2)_21
       rect:
         serializedVersion: 2
         x: 224
@@ -689,18 +572,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3af88c108a078e64d89e064aabe783a7
-      internalID: -1484724884
+      spriteID: 5338f09dac1c89e4c8bdd267a7694a98
+      internalID: -1220282899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_27
+      name: Adventurer Female Sprite Sheet (2)_22
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 256
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -710,98 +593,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bafefd7234831234f83f0595c5389178
-      internalID: -1206586485
+      spriteID: f268c575297532b48861bb3ec82544bf
+      internalID: -1492637635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_28
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cea99ea1a4e23d3429e7d70c6a3f7fa5
-      internalID: -705360870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_29
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6c2d118f33376743912f678f3d726ac
-      internalID: 1462365403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_30
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2331e9b7213176a41b684d4404d7f4f6
-      internalID: 1211097269
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_31
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a57d9f8987c2c384e83aa50fd48800fd
-      internalID: -1798180303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_32
+      name: Adventurer Female Sprite Sheet (2)_23
       rect:
         serializedVersion: 2
         x: 160
@@ -815,14 +614,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3e52d4cb49faf042ad637f3df358390
-      internalID: 741726991
+      spriteID: 9bb9ef72ebaa5a64fb6ad7a386305a9b
+      internalID: -766395064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_33
+      name: Adventurer Female Sprite Sheet (2)_24
       rect:
         serializedVersion: 2
         x: 192
@@ -836,14 +635,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9e57e8e3fe73524983f168ff74e8b69
-      internalID: 346488746
+      spriteID: 7990783820141e74586264d3d65af063
+      internalID: 1509374653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_34
+      name: Adventurer Female Sprite Sheet (2)_25
       rect:
         serializedVersion: 2
         x: 224
@@ -857,14 +656,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 686ab7441cd91d646b16d70875b3b932
-      internalID: -1196629338
+      spriteID: 58fe117edb2c5244aab552684e0b94ca
+      internalID: -1619026742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_35
+      name: Adventurer Female Sprite Sheet (2)_26
       rect:
         serializedVersion: 2
         x: 256
@@ -878,98 +677,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 181cc2efd43c47a40aa7578bff93160a
-      internalID: -886774881
+      spriteID: a9da0cb3823e22342b8f70627d76aaad
+      internalID: 429937879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_36
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9b384e8bb4093244b528fafa4cdc4d2
-      internalID: 593545753
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_37
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0700fbd651c05c74cb33bd3f2b6f8066
-      internalID: -1497967221
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_38
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cb47ca4aa2464a41aa4e1e72db53af8
-      internalID: 918927994
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_39
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc3c419ce42955c42af785b0fbdeafcc
-      internalID: -675262278
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fox Sprite Sheet_40
+      name: Adventurer Female Sprite Sheet (2)_27
       rect:
         serializedVersion: 2
         x: 64
@@ -983,14 +698,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c0928c31230d8e41a345b99b78bdfb8
-      internalID: 467414680
+      spriteID: 130a1b5f2181f5e40bd8fac7e4252805
+      internalID: -535182535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_41
+      name: Adventurer Female Sprite Sheet (2)_28
       rect:
         serializedVersion: 2
         x: 96
@@ -1004,14 +719,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f996d6d6b3ed9884ebf476691abe00b6
-      internalID: 1450413599
+      spriteID: 0dc3898273147354fba65a8753c60ff5
+      internalID: -598138815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_42
+      name: Adventurer Female Sprite Sheet (2)_29
       rect:
         serializedVersion: 2
         x: 128
@@ -1025,14 +740,98 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d861945d83a3c7a4a869d902eb5b57ee
-      internalID: -1704691883
+      spriteID: 929296dd85683f2408f28342110001a9
+      internalID: 1770474180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_43
+      name: Adventurer Female Sprite Sheet (2)_30
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 884c0fec22a26f84d9125f0339daa744
+      internalID: -909971392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Female Sprite Sheet (2)_31
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 861b23b004b4e4644ac4337a68e02497
+      internalID: -1693116454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Female Sprite Sheet (2)_32
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d979d432e0802134d82d0f2132787444
+      internalID: -1056851347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Female Sprite Sheet (2)_33
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c78c814dd8ea6634fbeb6ae51901f605
+      internalID: -183745829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Female Sprite Sheet (2)_34
       rect:
         serializedVersion: 2
         x: 0
@@ -1046,14 +845,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a878785c1859a87419f9d6ca006136f3
-      internalID: 647072830
+      spriteID: 96029c8fc441f5044ab7a02a0a2cf6bd
+      internalID: 2019561037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_44
+      name: Adventurer Female Sprite Sheet (2)_35
       rect:
         serializedVersion: 2
         x: 32
@@ -1067,14 +866,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83236bd8f767cbd4990c0c4fa4c6821f
-      internalID: 1674648496
+      spriteID: 4eb32a34cff2c2c4885112d974a95420
+      internalID: 1194867847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_45
+      name: Adventurer Female Sprite Sheet (2)_36
       rect:
         serializedVersion: 2
         x: 64
@@ -1088,14 +887,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad1200fed4e834d4891927b0db58354a
-      internalID: -154140046
+      spriteID: 846bf3a4c45372e4d9512d931442340d
+      internalID: 1095273908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_46
+      name: Adventurer Female Sprite Sheet (2)_37
       rect:
         serializedVersion: 2
         x: 96
@@ -1109,14 +908,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f065dd161446e04d8d9795f16592514
-      internalID: -115179618
+      spriteID: 337454d2a58f01f4db56a46778608b42
+      internalID: 1708718659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_47
+      name: Adventurer Female Sprite Sheet (2)_38
       rect:
         serializedVersion: 2
         x: 128
@@ -1130,14 +929,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36edcf76c61c51b4dbc65dbb1f0b9de6
-      internalID: -1463616677
+      spriteID: 9332f991dfae62f4ab38e60b2215b632
+      internalID: 852461368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_48
+      name: Adventurer Female Sprite Sheet (2)_39
       rect:
         serializedVersion: 2
         x: 160
@@ -1151,18 +950,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58d9b0b6dab2f7f409bcc3e360edec8c
-      internalID: -694960262
+      spriteID: 29477cacda1dd854c95c914ca1af1787
+      internalID: 1209181889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_49
+      name: Adventurer Female Sprite Sheet (2)_40
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 192
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -1172,18 +971,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fecd7204c403a23478c767de71f539b6
-      internalID: 1337689283
+      spriteID: d90ae742835a831479447e73f38e911c
+      internalID: -101264979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_50
+      name: Adventurer Female Sprite Sheet (2)_41
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 224
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -1193,18 +992,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22c664f62eab20540bbcc3a581ff0c79
-      internalID: -81298384
+      spriteID: 70865b96caaed32499583f045e1309e7
+      internalID: -681501425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_51
+      name: Adventurer Female Sprite Sheet (2)_42
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 256
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -1214,14 +1013,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2964bf46cd3f154ca4822a635f5cc26
-      internalID: -1467101200
+      spriteID: e712f20a23347d34aa5f6d50b0cda12d
+      internalID: -1153781475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_52
+      name: Adventurer Female Sprite Sheet (2)_43
       rect:
         serializedVersion: 2
         x: 96
@@ -1235,14 +1034,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2580359c00bd4eb4bb3a10f4623652ff
-      internalID: 634544227
+      spriteID: 41c3a2baa09499c41a9bee555839ec89
+      internalID: 1097658926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_53
+      name: Adventurer Female Sprite Sheet (2)_44
       rect:
         serializedVersion: 2
         x: 128
@@ -1256,14 +1055,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d177e9a48e813b4ab5461622dd8547a
-      internalID: 1118593563
+      spriteID: b693fcf203bd369468760e8dbe10c18f
+      internalID: 1146020154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_54
+      name: Adventurer Female Sprite Sheet (2)_45
       rect:
         serializedVersion: 2
         x: 160
@@ -1277,14 +1076,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ffbd5c38c8ce1040af1985f66503de3
-      internalID: -95250191
+      spriteID: 0bed6df3597adf24f8c4b40bab29b99c
+      internalID: -2056500500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox Sprite Sheet_55
+      name: Adventurer Female Sprite Sheet (2)_46
       rect:
         serializedVersion: 2
         x: 192
@@ -1298,8 +1097,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4a61ccfa85db2447a2579df79610ee6
-      internalID: 1199054840
+      spriteID: 672581c8b2fa3794db1a7272c5ac2c3a
+      internalID: 9577376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Female Sprite Sheet (2)_47
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e0430ddbf265c141998f394a0bd7dd1
+      internalID: -1202965971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Female Sprite Sheet (2)_48
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d01cea7c5bd704443ba3bdbe0762b595
+      internalID: 1258383395
       vertices: []
       indices: 
       edges: []
@@ -1315,62 +1156,55 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Fox Sprite Sheet_50: -81298384
-      Fox Sprite Sheet_3: -88110315
-      Fox Sprite Sheet_27: -1206586485
-      Fox Sprite Sheet_19: -1070036077
-      Fox Sprite Sheet_13: -431516358
-      Fox Sprite Sheet_11: -1444831388
-      Fox Sprite Sheet_4: 1567732840
-      Fox Sprite Sheet_26: -1484724884
-      Fox Sprite Sheet_25: -1776201637
-      Fox Sprite Sheet_2: -2049375911
-      Fox Sprite Sheet_0: -1678317204
-      Fox Sprite Sheet_29: 1462365403
-      Fox Sprite Sheet_8: -1173078540
-      Fox Sprite Sheet_10: -1728247646
-      Fox Sprite Sheet_22: -1425847523
-      Fox Sprite Sheet_21: -530631973
-      Fox Sprite Sheet_24: 2145872063
-      Fox Sprite Sheet_33: 346488746
-      Fox Sprite Sheet_47: -1463616677
-      Fox Sprite Sheet_28: -705360870
-      Fox Sprite Sheet_45: -154140046
-      Fox Sprite Sheet_32: 741726991
-      Fox Sprite Sheet_35: -886774881
-      Fox Sprite Sheet_6: -1430111374
-      Fox Sprite Sheet_38: 918927994
-      Fox Sprite Sheet_44: 1674648496
-      Fox Sprite Sheet_53: 1118593563
-      Fox Sprite Sheet_37: -1497967221
-      Fox Sprite Sheet_49: 1337689283
-      Fox Sprite Sheet_55: 1199054840
-      Fox Sprite Sheet_40: 467414680
-      Fox Sprite Sheet_23: -900548105
-      Fox Sprite Sheet_54: -95250191
-      Fox Sprite Sheet_36: 593545753
-      Fox Sprite Sheet_41: 1450413599
-      Fox Sprite Sheet_39: -675262278
-      Fox Sprite Sheet_18: 1802640096
-      Fox Sprite Sheet_31: -1798180303
-      Fox Sprite Sheet_46: -115179618
-      Fox Sprite Sheet_9: 1907653306
-      Fox Sprite Sheet_5: 135971601
-      Fox Sprite Sheet_42: -1704691883
-      Fox Sprite Sheet_12: 955675835
-      Fox Sprite Sheet_48: -694960262
-      Fox Sprite Sheet_15: -2011497282
-      Fox Sprite Sheet_30: 1211097269
-      Fox Sprite Sheet_51: -1467101200
-      Fox Sprite Sheet_7: 1199006407
-      Fox Sprite Sheet_14: 563420244
-      Fox Sprite Sheet_34: -1196629338
-      Fox Sprite Sheet_1: -274134663
-      Fox Sprite Sheet_16: 1516636738
-      Fox Sprite Sheet_52: 634544227
-      Fox Sprite Sheet_43: 647072830
-      Fox Sprite Sheet_20: -742981036
-      Fox Sprite Sheet_17: -2100256186
+      Adventurer Female Sprite Sheet (2)_44: 1146020154
+      Adventurer Female Sprite Sheet (2)_36: 1095273908
+      Adventurer Female Sprite Sheet (2)_29: 1770474180
+      Adventurer Female Sprite Sheet (2)_38: 852461368
+      Adventurer Female Sprite Sheet (2)_5: 241559395
+      Adventurer Female Sprite Sheet (2)_1: -1330786475
+      Adventurer Female Sprite Sheet (2)_7: -145506842
+      Adventurer Female Sprite Sheet (2)_11: 1709088516
+      Adventurer Female Sprite Sheet (2)_10: 1801455286
+      Adventurer Female Sprite Sheet (2)_17: -306219388
+      Adventurer Female Sprite Sheet (2)_22: -1492637635
+      Adventurer Female Sprite Sheet (2)_18: -1169741336
+      Adventurer Female Sprite Sheet (2)_19: -1427402738
+      Adventurer Female Sprite Sheet (2)_3: 857668640
+      Adventurer Female Sprite Sheet (2)_9: -1694677895
+      Adventurer Female Sprite Sheet (2)_16: 887467861
+      Adventurer Female Sprite Sheet (2)_46: 9577376
+      Adventurer Female Sprite Sheet (2)_34: 2019561037
+      Adventurer Female Sprite Sheet (2)_14: -641140725
+      Adventurer Female Sprite Sheet (2)_8: 1749750322
+      Adventurer Female Sprite Sheet (2)_40: -101264979
+      Adventurer Female Sprite Sheet (2)_28: -598138815
+      Adventurer Female Sprite Sheet (2)_35: 1194867847
+      Adventurer Female Sprite Sheet (2)_39: 1209181889
+      Adventurer Female Sprite Sheet (2)_15: -1758309765
+      Adventurer Female Sprite Sheet (2)_31: -1693116454
+      Adventurer Female Sprite Sheet (2)_32: -1056851347
+      Adventurer Female Sprite Sheet (2)_33: -183745829
+      Adventurer Female Sprite Sheet (2)_12: -1154494327
+      Adventurer Female Sprite Sheet (2)_45: -2056500500
+      Adventurer Female Sprite Sheet (2)_21: -1220282899
+      Adventurer Female Sprite Sheet (2)_48: 1258383395
+      Adventurer Female Sprite Sheet (2)_43: 1097658926
+      Adventurer Female Sprite Sheet (2)_6: -1432793557
+      Adventurer Female Sprite Sheet (2)_24: 1509374653
+      Adventurer Female Sprite Sheet (2)_13: 504039263
+      Adventurer Female Sprite Sheet (2)_47: -1202965971
+      Adventurer Female Sprite Sheet (2)_41: -681501425
+      Adventurer Female Sprite Sheet (2)_2: 808131562
+      Adventurer Female Sprite Sheet (2)_27: -535182535
+      Adventurer Female Sprite Sheet (2)_30: -909971392
+      Adventurer Female Sprite Sheet (2)_0: 514425530
+      Adventurer Female Sprite Sheet (2)_4: 1417726814
+      Adventurer Female Sprite Sheet (2)_25: -1619026742
+      Adventurer Female Sprite Sheet (2)_42: -1153781475
+      Adventurer Female Sprite Sheet (2)_20: -218101581
+      Adventurer Female Sprite Sheet (2)_26: 429937879
+      Adventurer Female Sprite Sheet (2)_23: -766395064
+      Adventurer Female Sprite Sheet (2)_37: 1708718659
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

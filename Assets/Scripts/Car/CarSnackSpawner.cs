@@ -8,9 +8,9 @@ public class CarSnackSpawner : MonoBehaviour, ITriggeredObject
 
     private TriggeredObjectType type = TriggeredObjectType.CarFoodSpawner;
 
-    public void OnObjectTriggerEnter(PlayerController player, PlayerState state) 
+    public void OnObjectTriggerEnter(PlayerController player, PlayerState playerState) 
     {
-        switch (state)
+        switch (playerState)
         {
             case PlayerState.Dead:
             case PlayerState.Dying:

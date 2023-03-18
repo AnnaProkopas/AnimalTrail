@@ -1,9 +1,8 @@
-
 public interface ITriggeredObject
 {
-    public void OnObjectTriggerEnter(PlayerController player, PlayerState state);
+    public void OnObjectTriggerEnter(PlayerController player, PlayerState playerState);
 
-    public void OnObjectTriggerExit(PlayerController player, PlayerState state)
+    public void OnObjectTriggerExit(PlayerController player, PlayerState playerState)
     {
     }
 }
