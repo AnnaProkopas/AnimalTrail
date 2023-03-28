@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +9,7 @@ public class EnergyManager : MonoBehaviour
     private PlayerController player;
     
     [SerializeField]
-    private Text textEnergy;
+    private PointsController textEnergy;
     [SerializeField]
     private int maxEnergy;
     
@@ -86,7 +85,7 @@ public class EnergyManager : MonoBehaviour
 
     private void UpdateEnergy() 
     { 
-        textEnergy.text = TotalEnergy.ToString();
+        textEnergy.HiddenChange(TotalEnergy);
     }
 
     private DateTime AddDuration(DateTime time, int duration) 
@@ -109,8 +108,9 @@ public class EnergyManager : MonoBehaviour
             return;
         }
 
+        var prevEnergy = TotalEnergy;
         TotalEnergy = Math.Min(TotalEnergy + value, maxEnergy);
-        UpdateEnergy();
+        textEnergy.AnimatedChange(TotalEnergy, TotalEnergy - prevEnergy);
     }
 
     public void Subtract(int value) 
@@ -120,8 +120,9 @@ public class EnergyManager : MonoBehaviour
             return;
         }
 
+        var prevEnergy = TotalEnergy;
         TotalEnergy = Math.Max(TotalEnergy - value, 0);
-        UpdateEnergy();
+        textEnergy.AnimatedChange(TotalEnergy, TotalEnergy - prevEnergy);
 
         if (!restoring) 
         {

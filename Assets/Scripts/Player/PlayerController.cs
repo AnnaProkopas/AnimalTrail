@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Joystick joystick;
     [SerializeField]
-    private Text healthText;
+    private PointsController healthText;
     [SerializeField]
     private Text foodCounterText;
     [SerializeField]
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     {
         foodCounter++;
         recordValueForFoodCounter = Math.Max(foodCounter, recordValueForFoodCounter);
-        foodCounterText.text = "" + foodCounter + (recordValueForFoodCounter > foodCounter ? ("(" + recordValueForFoodCounter + ")") : "");
+        foodCounterText.text = foodCounter + (recordValueForFoodCounter > foodCounter ? ("(" + recordValueForFoodCounter + ")") : "");
         ratingService.SetRecordFoodCounter(recordValueForFoodCounter);
     }
 
@@ -127,8 +127,9 @@ public class PlayerController : MonoBehaviour
 
     private void ChangeHealth(int value) 
     {
-        health = Math.Min(Math.Max(health + value, 0), MaxHealth);
-        healthText.text = "" + health;
+        int newHealth = Math.Min(Math.Max(health + value, 0), MaxHealth);
+        healthText.AnimatedChange(newHealth, newHealth - health);
+        health = newHealth;
         if (IsReadyForDeath())
         {
             StartDyingProcess();
@@ -182,7 +183,6 @@ public class PlayerController : MonoBehaviour
     public void EnableAttackMode()
     {
         IfNotDyingSetState(PlayerState.Attack);
-        Debug.Log("Attack");
         if (onAttack != null)
         {
             CollisionResult result = onAttack.Invoke();

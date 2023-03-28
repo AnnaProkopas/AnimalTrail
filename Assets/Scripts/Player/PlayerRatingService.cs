@@ -26,16 +26,12 @@ public class PlayerRatingService
         PlayerPrefs.SetInt(RatingValuePrefixField + count, value);
         PlayerPrefs.SetString(RatingDatePrefixField + count, DateTime.Now.ToString("dd.MM.yyyy"));
         PlayerPrefs.SetInt(RatingListCountField, count + 1);
-        
-        Debug.Log("added");
-        Debug.Log(DateTime.Now.ToString("dd.MM.yyyy"));
     }
 
     public List<StatRecord> GetStatRecords()
     {
         List<StatRecord> list = new List<StatRecord>();
         int count = PlayerPrefs.GetInt(RatingListCountField, 0);
-        Debug.Log("count " + count);
         for (int i = 0; i < count; i++)
         {
             StatRecord item = new StatRecord();
