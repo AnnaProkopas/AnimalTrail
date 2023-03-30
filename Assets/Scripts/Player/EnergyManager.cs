@@ -50,7 +50,7 @@ public class EnergyManager : MonoBehaviour
         UpdateEnergy();
         restoring = true;
 
-        while (TotalEnergy > 0) 
+        while (TotalEnergy > 0 && restoring) 
         {
             DateTime currentTime = DateTime.Now;
             DateTime counter = nextEnergyTime;
@@ -137,5 +137,18 @@ public class EnergyManager : MonoBehaviour
     public int GetEnergyValue() 
     {
         return TotalEnergy;
+    }
+
+    public void Pause()
+    {
+        restoring = false;
+    }
+
+    public void Resume()
+    {
+        lastChangedTime = DateTime.Now;
+        nextEnergyTime = AddDuration(DateTime.Now, restoreDuration * 2);
+        
+        StartCoroutine(RestoreRoutine());
     }
 }
