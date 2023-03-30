@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class CarSpawner : MonoBehaviour
@@ -11,13 +10,13 @@ public class CarSpawner : MonoBehaviour
     [SerializeField]
     private Transform spawnPoint;
     
-    private Car? currentCar = null;
+    [CanBeNull] private Car currentCar;
     private float maxPointX;
 
     void Start()
     {
-        PolygonCollider2D _polygonCollider = worldBoundary.GetComponent<PolygonCollider2D>();
-        foreach (var point in _polygonCollider.points)
+        PolygonCollider2D polygonCollider = worldBoundary.GetComponent<PolygonCollider2D>();
+        foreach (var point in polygonCollider.points)
         {
             maxPointX = Mathf.Max(maxPointX, point.x);
         }

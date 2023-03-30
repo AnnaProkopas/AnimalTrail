@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public delegate CollisionResult AttackDelegate();
 
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Joystick joystick;
     [SerializeField]
-    private PointsController healthText;
+    private Points healthText;
     [SerializeField]
     private Text foodCounterText;
     [SerializeField]
@@ -26,15 +26,20 @@ public class PlayerController : MonoBehaviour
 
     private PlayerState currentState;
     private Vector2 movement;
+    private int lastDirectionX = 0;
 
     private PlayerRatingService ratingService;
     private int foodCounter = 0;
     private int recordValueForFoodCounter;
-    private int lastDirectionX = 0;
-
     private int health = 10;
+
     private const int MaxHealth = 10;
 
+    private const string AnimatorAttributeState = "State";
+    private const string AnimatorAttributeSpeed = "Speed";
+    private const string AnimatorAttributeDirectionX = "DirectionX";
+    private const string AnimatorAttributeLastDirectionX = "LastDirectionX";
+    
     private void Start()
     {
         ratingService = new PlayerRatingService();
@@ -49,7 +54,7 @@ public class PlayerController : MonoBehaviour
             return;
         case PlayerState.Dying:
             movement = new Vector2(0, 0);
-            animator.SetInteger("State", (int)PlayerState.Dead);
+            animator.SetInteger(AnimatorAttributeState, (int)PlayerState.Dead);
             return;
         }
 
@@ -58,10 +63,10 @@ public class PlayerController : MonoBehaviour
         float absMovement = Mathf.Abs(movement.x) + Mathf.Abs(movement.y);
         int signMovementX = (int)Mathf.Sign(movement.x);
 
-        animator.SetInteger("State", (int)currentState);
-        animator.SetFloat("Speed", absMovement);
-        animator.SetFloat("DirectionX", signMovementX);
-        animator.SetFloat("LastDirectionX", lastDirectionX);
+        animator.SetInteger(AnimatorAttributeState, (int)currentState);
+        animator.SetFloat(AnimatorAttributeSpeed, absMovement);
+        animator.SetFloat(AnimatorAttributeDirectionX, signMovementX);
+        animator.SetFloat(AnimatorAttributeLastDirectionX, lastDirectionX);
         if (movement.x != 0)
         {
             lastDirectionX = signMovementX;

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CarSnackSpawner : MonoBehaviour, ITriggeredObject
@@ -8,7 +6,7 @@ public class CarSnackSpawner : MonoBehaviour, ITriggeredObject
 
     private TriggeredObjectType type = TriggeredObjectType.CarFoodSpawner;
 
-    public void OnObjectTriggerEnter(PlayerController player, PlayerState playerState) 
+    public void OnObjectTriggerEnter(Player player, PlayerState playerState) 
     {
         switch (playerState)
         {

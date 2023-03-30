@@ -14,7 +14,7 @@ public class Mouse : MovableObject, ITriggeredObject
 
     private TriggeredObjectType type = TriggeredObjectType.Mouse;
 
-    public void OnObjectTriggerEnter(PlayerController player, PlayerState playerState) 
+    public void OnObjectTriggerEnter(Player player, PlayerState playerState) 
     {
         switch (playerState)
         {
@@ -29,7 +29,7 @@ public class Mouse : MovableObject, ITriggeredObject
         }
     }
 
-    public void OnObjectTriggerExit(PlayerController player, PlayerState state)
+    public void OnObjectTriggerExit(Player player, PlayerState state)
     {
         player.onAttack -= OnAttack;
     }

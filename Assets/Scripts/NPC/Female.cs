@@ -1,4 +1,3 @@
-
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -11,40 +10,37 @@ public class Female : MonoBehaviour, ITriggeredObject
     [SerializeField] 
     private GameObject cake;
         
-    [CanBeNull] private PlayerController observedObject;
+    [CanBeNull] private Player observedObject;
 
     private FemaleState state = FemaleState.Idle;
-
     private int countCakes = 1;
-
-    void Start()
-    {
-        
-    }
+    
+    private const string AnimatorAttributeState = "state";
+    private const string AnimatorAttributeRight = "right";
 
     void Update()
     {
         switch (state)
         {
             case FemaleState.Idle:
-                animator.SetInteger("state", 0);
+                animator.SetInteger(AnimatorAttributeState, 0);
                 break;
             case FemaleState.Cry:
-                animator.SetInteger("state", 1);
+                animator.SetInteger(AnimatorAttributeState, 1);
                 break;
             case FemaleState.Happy:
-                animator.SetInteger("state", 2);
+                animator.SetInteger(AnimatorAttributeState, 2);
                 break;
         }
 
         if (observedObject)
         {
             Vector2 direction = observedObject.GetPosition() - rb.position;
-            animator.SetBool("right", direction.x > 0);
+            animator.SetBool(AnimatorAttributeRight, direction.x > 0);
         }
     }
     
-    public void OnObjectTriggerEnter(PlayerController player, PlayerState playerState)
+    public void OnObjectTriggerEnter(Player player, PlayerState playerState)
     {
         observedObject = player;
         
@@ -69,7 +65,7 @@ public class Female : MonoBehaviour, ITriggeredObject
         player.onAttack += OnAttack;
     }
 
-    public void OnObjectTriggerExit(PlayerController player, PlayerState playerState)
+    public void OnObjectTriggerExit(Player player, PlayerState playerState)
     {
         state = FemaleState.Idle;
         player.onAttack -= OnAttack;
@@ -81,7 +77,6 @@ public class Female : MonoBehaviour, ITriggeredObject
         CollisionResult res = new CollisionResult();
         res.healthPoints = 0;
         res.energyPoints = 0;
-        Debug.Log("Female.onAttack");
         return res;
     }
 

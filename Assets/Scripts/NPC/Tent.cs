@@ -16,7 +16,7 @@ public class Tent : MonoBehaviour, ITriggeredObject
 
     }
 
-    public void OnObjectTriggerEnter(PlayerController player, PlayerState playerState)
+    public void OnObjectTriggerEnter(Player player, PlayerState playerState)
     {
         Spawn(player.GetPosition() + (new Vector2(1, 0)));
         // switch (state)
@@ -29,7 +29,7 @@ public class Tent : MonoBehaviour, ITriggeredObject
         // }
     }
 
-    public void OnObjectTriggerExit(PlayerController player, PlayerState playerState)
+    public void OnObjectTriggerExit(Player player, PlayerState playerState)
     {
         // player.onAttack -= OnAttack;
     }

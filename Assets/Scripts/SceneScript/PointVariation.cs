@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PointVarController : MonoBehaviour
+public class PointVariation : MonoBehaviour
 {
     [SerializeField] private string prefix;
     [SerializeField] private Text text;

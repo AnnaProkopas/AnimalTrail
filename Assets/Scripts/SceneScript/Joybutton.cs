@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class Joybutton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     [SerializeField] 
-    private PlayerController player;
+    private Player player;
 
     public void OnPointerDown(PointerEventData eventData)
     {

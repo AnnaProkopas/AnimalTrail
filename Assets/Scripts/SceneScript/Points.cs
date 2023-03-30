@@ -1,13 +1,12 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PointsController : MonoBehaviour
+public class Points : MonoBehaviour
 {
     [SerializeField] private RectTransform rectTransform;
     [SerializeField] private Text text;
-    [SerializeField] private PointVarController incObject;
-    [SerializeField] private PointVarController decObject;
+    [SerializeField] private PointVariation incObject;
+    [SerializeField] private PointVariation decObject;
 
     public int value;
 

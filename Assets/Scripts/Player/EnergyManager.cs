@@ -1,15 +1,14 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnergyManager : MonoBehaviour
 {
     [SerializeField] 
-    private PlayerController player;
+    private Player player;
     
     [SerializeField]
-    private PointsController textEnergy;
+    private Points textEnergy;
     [SerializeField]
     private int maxEnergy;
     

@@ -26,8 +26,8 @@ public class MouseSpawner : MonoBehaviour
     {
         timeBetweenSpawn = spawnStartTime;
         currentFood = new List<GameObject>();
-        PolygonCollider2D _polygonCollider = worldBoundary.GetComponent<PolygonCollider2D>();
-        foreach (var point in _polygonCollider.points)
+        PolygonCollider2D polygonCollider = worldBoundary.GetComponent<PolygonCollider2D>();
+        foreach (var point in polygonCollider.points)
         {
             minPoint.x = Mathf.Min(minPoint.x, point.x);
             minPoint.y = Mathf.Min(minPoint.y, point.y);

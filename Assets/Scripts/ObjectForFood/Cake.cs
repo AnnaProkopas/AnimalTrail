@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Cake : MonoBehaviour, ITriggeredObject
@@ -11,7 +9,7 @@ public class Cake : MonoBehaviour, ITriggeredObject
 
     private TriggeredObjectType type = TriggeredObjectType.Cake;
 
-    public void OnObjectTriggerEnter(PlayerController player, PlayerState playerState) 
+    public void OnObjectTriggerEnter(Player player, PlayerState playerState) 
     {
         switch (playerState)
         {
@@ -20,7 +18,7 @@ public class Cake : MonoBehaviour, ITriggeredObject
                 break;
             default:
                 player.Eat(energyPoints, healthPoints);
-                Destroy(this.gameObject);
+                Destroy(gameObject);
                 break;
         }
     }

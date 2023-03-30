@@ -6,12 +6,12 @@ public class Car : MovableObject, ITriggeredObject
 {
     private TriggeredObjectType type = TriggeredObjectType.Car;
 
-    public void OnObjectTriggerEnter(PlayerController player, PlayerState playerState) 
+    public void OnObjectTriggerEnter(Player player, PlayerState playerState) 
     {
         player.OnStartTakingDamage(12);
     }
     
-    public void OnObjectTriggerExit(PlayerController player, PlayerState playerState) 
+    public void OnObjectTriggerExit(Player player, PlayerState playerState) 
     {
         player.OnFinishTakingDamage();
     }
