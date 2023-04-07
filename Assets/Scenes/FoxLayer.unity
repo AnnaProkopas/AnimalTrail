@@ -13507,6 +13507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FemaleHuman
       objectReference: {fileID: 0}
+    - target: {fileID: 945076542464439688, guid: d45ea4ff5beb328418e7ea7a36a198fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5362418278810100623, guid: d45ea4ff5beb328418e7ea7a36a198fe, type: 3}
       propertyPath: m_IsTrigger
       value: 1
