@@ -54,10 +54,6 @@ public class LangManager : MonoBehaviour
     {
         LoadLang();
     }
-
-    public void SetSelectedLanguage(Languages id)
-    {
-    }
     
     private static void LoadLang()
     {

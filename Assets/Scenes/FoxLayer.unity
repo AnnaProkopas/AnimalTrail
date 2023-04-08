@@ -10451,7 +10451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1274849400
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12532,7 +12532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: continue
+  m_text: _continue_
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 55254b300a520b74aa0415ed24b1451a, type: 2}
   m_sharedMaterial: {fileID: 3715252826295379728, guid: 55254b300a520b74aa0415ed24b1451a, type: 2}
@@ -13275,6 +13275,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1274849400}
     m_Modifications:
+    - target: {fileID: 4623828828553596754, guid: d87a3824d6ff9144b854d9ed3bbe5d66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623828828553596754, guid: d87a3824d6ff9144b854d9ed3bbe5d66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623828828553596754, guid: d87a3824d6ff9144b854d9ed3bbe5d66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623828828553596754, guid: d87a3824d6ff9144b854d9ed3bbe5d66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadPreviousScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623828828553596754, guid: d87a3824d6ff9144b854d9ed3bbe5d66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4623828828553596755, guid: d87a3824d6ff9144b854d9ed3bbe5d66, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13514,6 +13534,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1274849400}
     m_Modifications:
+    - target: {fileID: 6845233063504179192, guid: cf06970c96e2be84d9983b67403d3c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6845233063504179193, guid: cf06970c96e2be84d9983b67403d3c73, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

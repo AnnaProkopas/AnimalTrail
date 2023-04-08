@@ -30,6 +30,12 @@
       <ru>Топ рекордов</ru>
     </Translations>
   </Record>
+  <Record Name="Settings_title_key">
+    <Translations>
+      <en-us>Settings</en-us>
+      <ru>Настройки</ru>
+    </Translations>
+  </Record>
   <Record Name="Pause_continue_button_key">
     <Translations>
       <en-us>continue</en-us>

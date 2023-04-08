@@ -3,8 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    public void LoadScene (string name) 
+    public void LoadScene(int sceneID) 
     {
-        SceneManager.LoadScene (name);
+        CrossSceneStaticContainer.addScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(sceneID);
+    }
+
+    public void LoadPreviousScene()
+    {
+        SceneManager.LoadScene(CrossSceneStaticContainer.popSceneId());
     }
 }
