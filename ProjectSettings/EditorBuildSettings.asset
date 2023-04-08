@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FoxLayer.unity
     guid: a586f834452f5f94dbb7aaff91a47ef7
   - enabled: 1
-    path: Assets/Scenes/RatingScreen.unity
+    path: Assets/Scenes/RecordsScreen.unity
     guid: de9c49fedb458a641ad17e29648a6587
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c15c0d8be7e27a34f8d31eb0e6be43e7, type: 2}
