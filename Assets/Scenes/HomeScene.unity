@@ -939,6 +939,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &505806565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 111126419781160660, guid: ec62896ebc884c24485651d3bb78df9d, type: 3}
+  m_PrefabInstance: {fileID: 111126420077101284}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &615656520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,10 +2037,10 @@ RectTransform:
   m_Father: {fileID: 1526561546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 232}
-  m_SizeDelta: {x: 360, y: 50}
+  m_SizeDelta: {x: 360, y: -590}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1533439232
 MonoBehaviour:
@@ -2501,6 +2506,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LangManager
       objectReference: {fileID: 0}
+    - target: {fileID: 111126419781160661, guid: ec62896ebc884c24485651d3bb78df9d, type: 3}
+      propertyPath: aPrefab
+      value: 
+      objectReference: {fileID: 505806565}
+    - target: {fileID: 111126419781160661, guid: ec62896ebc884c24485651d3bb78df9d, type: 3}
+      propertyPath: textAsset
+      value: 
+      objectReference: {fileID: 4900000, guid: 67103cab6fad88a42a32c97bfa301ec0, type: 3}
     - target: {fileID: 111126419781160662, guid: ec62896ebc884c24485651d3bb78df9d, type: 3}
       propertyPath: m_RootOrder
       value: 6

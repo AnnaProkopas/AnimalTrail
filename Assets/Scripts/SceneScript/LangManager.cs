@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
-using System.IO;
 using UnityEngine;
 
 public class LangManager : MonoBehaviour
 {
+    public static LangManager instance;
+
     private static Languages selectedLanguage = Languages.EN;
 
     public static Languages SelectedLanguage
@@ -25,16 +26,20 @@ public class LangManager : MonoBehaviour
             OnLanguageChange?.Invoke();
         }
         get { return selectedLanguage;  }
-    }  
+    }
 
     public static event LanguageChangeHandler OnLanguageChange;
-
+    
+    public TextAsset textAsset;
+    
     public delegate void LanguageChangeHandler();
 
     private static Dictionary<string, List<string>> _langDictionary;
 
     private void Awake()
     {
+        instance = this;
+        
         if (!PlayerPrefs.HasKey("Language"))
         {
             if (Application.systemLanguage == SystemLanguage.Russian)
@@ -58,9 +63,8 @@ public class LangManager : MonoBehaviour
     private static void LoadLang()
     {
         _langDictionary = new Dictionary<string, List<string>>();
-        var fileText = File.ReadAllText(Application.streamingAssetsPath + "/Resource/Lang.xml");
         XmlDocument xmlDocument = new XmlDocument();
-        xmlDocument.LoadXml(fileText);
+        xmlDocument.LoadXml(instance.textAsset.text);
 
         // Debug.Log(xmlDocument["Records"]);
         foreach (XmlNode record in xmlDocument["Records"].ChildNodes)
