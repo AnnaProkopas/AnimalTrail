@@ -4,5 +4,6 @@ public enum TriggeredObjectType
     Mouse,
     Cake,
     Car,
-    CarFoodSpawner
+    CarFoodSpawner,
+    Garbage
 }
