@@ -38,3 +38,18 @@
 https://forum.unity.com/threads/the-russian-letters-arent-shown-instead-of-them-blocks-help-please.468481/
 https://forum.unity.com/threads/character-set-for-multiple-languages.524511/
 https://docs.unity3d.com/ru/530/Manual/class-Font.html
+ 
+
+===
+21.04
+
+Разработка
+- адаптирование экранов под разные устройства
+- добавила анимеированную кучку мусора (анимация, логика)
+
+Дизайн
+-доработала фоновое изображение
+
+- опубликовала в рустор
+- написала детскому тур-клубу Бумеранг (Сахалин)
+- саундизайн

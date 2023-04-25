@@ -6,7 +6,7 @@ public class LangManager : MonoBehaviour
 {
     public static LangManager instance;
 
-    private static Languages selectedLanguage = Languages.EN;
+    private static Languages selectedLanguage = Languages.RU;
 
     public static Languages SelectedLanguage
     {

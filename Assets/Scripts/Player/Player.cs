@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     private Vector2 movement;
     private int lastDirectionX = 0;
 
-    private PlayerRatingService ratingService;
     private int foodCounter = 0;
     private int recordValueForFoodCounter;
     private int health = 10;
@@ -42,8 +41,7 @@ public class Player : MonoBehaviour
     
     private void Start()
     {
-        ratingService = new PlayerRatingService();
-        recordValueForFoodCounter = ratingService.GetRecordFoodCounter();
+        recordValueForFoodCounter = PlayerRatingService.GetRecordFoodCounter();
     }
 
     private void Update()
@@ -104,7 +102,7 @@ public class Player : MonoBehaviour
         foodCounter++;
         recordValueForFoodCounter = Math.Max(foodCounter, recordValueForFoodCounter);
         foodCounterText.text = foodCounter + (recordValueForFoodCounter > foodCounter ? ("(" + recordValueForFoodCounter + ")") : "");
-        ratingService.SetRecordFoodCounter(recordValueForFoodCounter);
+        // PlayerRatingService.SetRecordFoodCounter(recordValueForFoodCounter);
     }
 
     private bool IsReadyForDeath()
@@ -148,16 +146,16 @@ public class Player : MonoBehaviour
 
     public void GoToHomeScene() 
     {
-        switch (currentState)
-        {
-            case PlayerState.Dead:
-            case PlayerState.Dying:
-                ratingService.AddRecord(foodCounter);
-                break;
-            default:
-                break;
-        }
+        // switch (currentState)
+        // {
+        //     case PlayerState.Dead:
+        //     case PlayerState.Dying:
+        //         break;
+        //     default:
+        //         break;
+        // }
 
+        PlayerRatingService.AddRecord(foodCounter);
         Destroy(this.gameObject);
         SceneManager.LoadScene (0);
     }

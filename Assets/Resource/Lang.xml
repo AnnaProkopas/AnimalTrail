@@ -14,7 +14,7 @@
   </Record>
   <Record Name="Home_records_button_key">
     <Translations>
-      <en-us>records</en-us>
+      <en-us>highscore</en-us>
       <ru>рекорды</ru>
     </Translations>
   </Record>
@@ -26,8 +26,32 @@
   </Record>
   <Record Name="Record_title_key">
     <Translations>
-      <en-us>Top records</en-us>
-      <ru>Топ рекордов</ru>
+      <en-us>HighScore</en-us>
+      <ru>Рекорды</ru>
+    </Translations>
+  </Record>
+  <Record Name="Record_level_key">
+    <Translations>
+      <en-us>level</en-us>
+      <ru>уровень</ru>
+    </Translations>
+  </Record>
+  <Record Name="Record_food_key">
+    <Translations>
+      <en-us>points</en-us>
+      <ru>очки</ru>
+    </Translations>
+  </Record>
+  <Record Name="Record_humans_key">
+    <Translations>
+      <en-us>people</en-us>
+      <ru>люди</ru>
+    </Translations>
+  </Record>
+  <Record Name="Record_date_key">
+    <Translations>
+      <en-us>date</en-us>
+      <ru>дата</ru>
     </Translations>
   </Record>
   <Record Name="Settings_title_key">
