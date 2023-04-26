@@ -9,6 +9,8 @@ public class CarSpawner : MonoBehaviour
     private GameObject worldBoundary;
     [SerializeField]
     private Transform spawnPoint;
+    [SerializeField]
+    private float speed = 4.0f;
     
     [CanBeNull] private Car currentCar;
     private float maxPointX;
@@ -21,7 +23,7 @@ public class CarSpawner : MonoBehaviour
             maxPointX = Mathf.Max(maxPointX, point.x);
         }
 
-        maxPointX += 3.0f;
+        maxPointX += speed;
     }
 
     void Update()

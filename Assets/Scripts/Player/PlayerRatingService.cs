@@ -12,9 +12,6 @@ public class PlayerRatingService
     private const string RatingListCountField = "ratingListCount";
     private const string RatingDatePrefixField = "statsRecordDate";
     private const string RatingValuePrefixField = "statsRecordValue";
-    private const string RatingHumansPrefixField = "statsRecordHumans";
-    private const string RatingLevelPrefixField = "statsRecordLevel";
-    private const string RatingYearsPrefixField = "statsRecordYears";
     
     private static PlayerRatingService _instance;
     public static PlayerRatingService instance

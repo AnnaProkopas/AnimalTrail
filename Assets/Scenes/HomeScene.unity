@@ -1791,7 +1791,7 @@ RectTransform:
   m_Children:
   - {fileID: 135658694}
   m_Father: {fileID: 1526561546}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1979,8 +1979,8 @@ RectTransform:
   - {fileID: 430674899}
   - {fileID: 615656521}
   - {fileID: 1867440025}
-  - {fileID: 4684957829911136090}
   - {fileID: 1403517644}
+  - {fileID: 4684957829911136090}
   - {fileID: 807467947}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2072,7 +2072,7 @@ MonoBehaviour:
   m_text: animal trail
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c301c72ac15e41442a9f4a41ea17d140, type: 2}
-  m_sharedMaterial: {fileID: 4625692934938965706, guid: c301c72ac15e41442a9f4a41ea17d140, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 3a57a7d75d5728d4db4b7a2173e1c455, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
