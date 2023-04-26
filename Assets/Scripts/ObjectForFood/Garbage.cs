@@ -20,6 +20,24 @@ public class Garbage : MonoBehaviour, IPlayerTriggered
                 player.Eat(energyPoints, healthPoints);
                 Destroy(gameObject);
                 break;
+            default:
+                player.onAttack += OnAttack;
+                break;
         }
+    }
+
+    public void OnPlayerTriggerExit(Player player, PlayerState state)
+    {
+        player.onAttack -= OnAttack;
+    }
+
+    private CollisionResult OnAttack()
+    {
+        Destroy(this.gameObject);
+
+        CollisionResult res = new CollisionResult();
+        res.healthPoints = healthPoints;
+        res.energyPoints = energyPoints;
+        return res;
     }
 }
