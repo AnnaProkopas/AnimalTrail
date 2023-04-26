@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Garbage : MonoBehaviour, ITriggeredObject
+public class Garbage : MonoBehaviour, IPlayerTriggered
 {
     [SerializeField]
     public int energyPoints = 2;
@@ -9,7 +9,7 @@ public class Garbage : MonoBehaviour, ITriggeredObject
 
     private TriggeredObjectType type = TriggeredObjectType.Garbage;
 
-    public void OnObjectTriggerEnter(Player player, PlayerState playerState) 
+    public void OnPlayerTriggerEnter(Player player, PlayerState playerState) 
     {
         switch (playerState)
         {

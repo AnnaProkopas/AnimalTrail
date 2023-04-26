@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Mouse : MovableObject, ITriggeredObject
+public class Mouse : MovableObject, IPlayerTriggered
 {
     [SerializeField]
     private Animator animator;
@@ -14,7 +14,7 @@ public class Mouse : MovableObject, ITriggeredObject
 
     private TriggeredObjectType type = TriggeredObjectType.Mouse;
 
-    public void OnObjectTriggerEnter(Player player, PlayerState playerState) 
+    public void OnPlayerTriggerEnter(Player player, PlayerState playerState) 
     {
         switch (playerState)
         {
@@ -29,7 +29,7 @@ public class Mouse : MovableObject, ITriggeredObject
         }
     }
 
-    public void OnObjectTriggerExit(Player player, PlayerState state)
+    public void OnPlayerTriggerExit(Player player, PlayerState state)
     {
         player.onAttack -= OnAttack;
     }

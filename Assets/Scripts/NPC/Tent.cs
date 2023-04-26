@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tent : MonoBehaviour, ITriggeredObject
+public class Tent : MonoBehaviour, IPlayerTriggered
 {
     public GameObject human;
     
@@ -16,7 +16,7 @@ public class Tent : MonoBehaviour, ITriggeredObject
 
     }
 
-    public void OnObjectTriggerEnter(Player player, PlayerState playerState)
+    public void OnPlayerTriggerEnter(Player player, PlayerState playerState)
     {
         Spawn(player.GetPosition() + (new Vector2(1, 0)));
         // switch (state)
@@ -29,7 +29,7 @@ public class Tent : MonoBehaviour, ITriggeredObject
         // }
     }
 
-    public void OnObjectTriggerExit(Player player, PlayerState playerState)
+    public void OnPlayerTriggerExit(Player player, PlayerState playerState)
     {
         // player.onAttack -= OnAttack;
     }

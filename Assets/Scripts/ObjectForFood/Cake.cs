@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Cake : MonoBehaviour, ITriggeredObject
+public class Cake : MonoBehaviour, IPlayerTriggered
 {
     [SerializeField]
     public int energyPoints = 8;
@@ -9,7 +9,7 @@ public class Cake : MonoBehaviour, ITriggeredObject
 
     private TriggeredObjectType type = TriggeredObjectType.Cake;
 
-    public void OnObjectTriggerEnter(Player player, PlayerState playerState) 
+    public void OnPlayerTriggerEnter(Player player, PlayerState playerState) 
     {
         switch (playerState)
         {

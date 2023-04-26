@@ -81,19 +81,19 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D (Collider2D other) 
     {
-        ITriggeredObject otherObject = other.gameObject.GetComponent<ITriggeredObject>();
+        IPlayerTriggered otherObject = other.gameObject.GetComponent<IPlayerTriggered>();
         if (otherObject != null) 
         {
-            otherObject.OnObjectTriggerEnter(this, currentState);
+            otherObject.OnPlayerTriggerEnter(this, currentState);
         }
     }
 
     private void OnTriggerExit2D (Collider2D other) 
     {
-        ITriggeredObject otherObject = other.gameObject.GetComponent<ITriggeredObject>();
+        IPlayerTriggered otherObject = other.gameObject.GetComponent<IPlayerTriggered>();
         if (otherObject != null) 
         {
-            otherObject.OnObjectTriggerExit(this, currentState);
+            otherObject.OnPlayerTriggerExit(this, currentState);
         }
     }
 

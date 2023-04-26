@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class CarSnackSpawner : MonoBehaviour, ITriggeredObject
+public class CarSnackSpawner : MonoBehaviour, IPlayerTriggered
 {
     public GameObject cake;
 
     private TriggeredObjectType type = TriggeredObjectType.CarFoodSpawner;
 
-    public void OnObjectTriggerEnter(Player player, PlayerState playerState) 
+    public void OnPlayerTriggerEnter(Player player, PlayerState playerState)
     {
         switch (playerState)
         {
@@ -20,7 +20,7 @@ public class CarSnackSpawner : MonoBehaviour, ITriggeredObject
         }
     }
 
-    private void Spawn(Vector2 position) 
+    private void Spawn(Vector2 position)
     {
         Instantiate(cake, position, Quaternion.identity);
     }

@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class Female : MonoBehaviour, ITriggeredObject
+public class Female : MonoBehaviour, IPlayerTriggered
 {
     [SerializeField] 
     private Animator animator;
@@ -40,7 +40,7 @@ public class Female : MonoBehaviour, ITriggeredObject
         }
     }
     
-    public void OnObjectTriggerEnter(Player player, PlayerState playerState)
+    public void OnPlayerTriggerEnter(Player player, PlayerState playerState)
     {
         observedObject = player;
         
@@ -65,7 +65,7 @@ public class Female : MonoBehaviour, ITriggeredObject
         player.onAttack += OnAttack;
     }
 
-    public void OnObjectTriggerExit(Player player, PlayerState playerState)
+    public void OnPlayerTriggerExit(Player player, PlayerState playerState)
     {
         state = FemaleState.Idle;
         player.onAttack -= OnAttack;

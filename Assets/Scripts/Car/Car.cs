@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Car : MovableObject, ITriggeredObject
+public class Car : MovableObject, IPlayerTriggered, INPCAnimalTriggered
 {
     private TriggeredObjectType type = TriggeredObjectType.Car;
 
-    public void OnObjectTriggerEnter(Player player, PlayerState playerState) 
+    public void OnPlayerTriggerEnter(Player player, PlayerState playerState) 
     {
-        player.OnStartTakingDamage(12);
+        player.OnStartTakingDamage(8);
     }
     
-    public void OnObjectTriggerExit(Player player, PlayerState playerState) 
+    public void OnPlayerTriggerExit(Player player, PlayerState playerState) 
     {
         player.OnFinishTakingDamage();
     }
@@ -19,5 +17,10 @@ public class Car : MovableObject, ITriggeredObject
     void Start()
     {
         direction = new Vector2(1, 0);
+    }
+    
+    public void OnNpcAnimalTriggerEnter(INPCAnimal npcAnimal)
+    {
+        npcAnimal.Disappear();
     }
 }
