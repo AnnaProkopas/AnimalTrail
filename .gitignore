@@ -1,1 +1,12 @@
-Assets/report.md
+.idea/
+AnimalTrail.sln
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp.csproj
+Library/
+Logs/
+Recordings/
+Temp/
+UIElementsSchema/
+UserSettings/
+build/
+obj/
