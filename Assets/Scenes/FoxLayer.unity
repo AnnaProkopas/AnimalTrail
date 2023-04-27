@@ -731,6 +731,7 @@ GameObject:
   - component: {fileID: 310908841}
   - component: {fileID: 310908842}
   - component: {fileID: 310908843}
+  - component: {fileID: 310908844}
   m_Layer: 5
   m_Name: HealthValue
   m_TagString: Untagged
@@ -814,9 +815,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 310908839}
   text: {fileID: 310908842}
+  animator: {fileID: 310908844}
   incObject: {fileID: 57393595576152079, guid: 4fdade4e7b774e64b987218362071401, type: 3}
   decObject: {fileID: 2015867132895684141, guid: 4246efddf9014c54ea8739b97bcddb2f, type: 3}
-  value: 0
+  alertValue: 0
+  value: 1
+--- !u!95 &310908844
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310908838}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c974e7f46866f041b8e87faccc87a95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &370055990
 GameObject:
   m_ObjectHideFlags: 0
@@ -10582,7 +10605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 111126419781160662, guid: ec62896ebc884c24485651d3bb78df9d, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 111126419781160662, guid: ec62896ebc884c24485651d3bb78df9d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12288,7 +12311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1710847237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12409,6 +12432,10 @@ PrefabInstance:
     - target: {fileID: 8084442375423665382, guid: 2b9372d4c518e154b847c6a49084a096, type: 3}
       propertyPath: m_Name
       value: Garbage blue bunch
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594056009264571165, guid: 2b9372d4c518e154b847c6a49084a096, type: 3}
+      propertyPath: energyPoints
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b9372d4c518e154b847c6a49084a096, type: 3}
@@ -12740,6 +12767,7 @@ GameObject:
   - component: {fileID: 1943829867}
   - component: {fileID: 1943829868}
   - component: {fileID: 1943829869}
+  - component: {fileID: 1943829870}
   m_Layer: 5
   m_Name: EnergyValue
   m_TagString: Untagged
@@ -12757,7 +12785,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 175416852}
   m_RootOrder: 3
@@ -12801,7 +12829,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
-    m_MaxSize: 65
+    m_MaxSize: 80
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -12823,9 +12851,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 1943829865}
   text: {fileID: 1943829868}
+  animator: {fileID: 1943829870}
   incObject: {fileID: 57393595576152079, guid: 4fdade4e7b774e64b987218362071401, type: 3}
   decObject: {fileID: 2015867132895684141, guid: 4246efddf9014c54ea8739b97bcddb2f, type: 3}
-  value: 0
+  alertValue: 0
+  value: 3
+--- !u!95 &1943829870
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943829864}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c974e7f46866f041b8e87faccc87a95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1997503278
 GameObject:
   m_ObjectHideFlags: 0
@@ -13171,7 +13221,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 329783500951757736, guid: d45ea4ff5beb328418e7ea7a36a198fe, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 329783500951757736, guid: d45ea4ff5beb328418e7ea7a36a198fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13547,7 +13597,7 @@ PrefabInstance:
       objectReference: {fileID: 436570225}
     - target: {fileID: 5603809043300646645, guid: 6d56b289c3da0b8408875c7d625d46f0, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5603809043300646645, guid: 6d56b289c3da0b8408875c7d625d46f0, type: 3}
       propertyPath: m_LocalScale.x
