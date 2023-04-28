@@ -15,8 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/FoxLayer.unity
     guid: a586f834452f5f94dbb7aaff91a47ef7
   - enabled: 1
-    path: Assets/Scenes/RecordsScreen.unity
-    guid: de9c49fedb458a641ad17e29648a6587
+    path: Assets/Scenes/Top10RecordsScreen.unity
+    guid: 8e1399d88e65d29469bb089a90eac2f9
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/SettingsScreen.unity
     guid: 9865d9ba6fb294b4b99f22e7ffe525eb

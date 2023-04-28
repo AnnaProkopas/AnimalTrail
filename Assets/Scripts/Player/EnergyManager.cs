@@ -31,6 +31,7 @@ public class EnergyManager : MonoBehaviour
 
     private DateTime lastChangedTime;
 
+    [SerializeField]
     private readonly int restoreDuration = 2;
 
     private bool restoring = false;
