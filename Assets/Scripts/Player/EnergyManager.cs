@@ -31,7 +31,7 @@ public class EnergyManager : MonoBehaviour
 
     private DateTime lastChangedTime;
 
-    private readonly int restoreDuration = 4;
+    private readonly int restoreDuration = 2;
 
     private bool restoring = false;
 

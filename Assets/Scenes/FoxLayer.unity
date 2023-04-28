@@ -818,8 +818,7 @@ MonoBehaviour:
   animator: {fileID: 310908844}
   incObject: {fileID: 57393595576152079, guid: 4fdade4e7b774e64b987218362071401, type: 3}
   decObject: {fileID: 2015867132895684141, guid: 4246efddf9014c54ea8739b97bcddb2f, type: 3}
-  alertValue: 0
-  value: 1
+  alertValue: 1
 --- !u!95 &310908844
 Animator:
   serializedVersion: 5
@@ -12311,7 +12310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1710847237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12854,8 +12853,7 @@ MonoBehaviour:
   animator: {fileID: 1943829870}
   incObject: {fileID: 57393595576152079, guid: 4fdade4e7b774e64b987218362071401, type: 3}
   decObject: {fileID: 2015867132895684141, guid: 4246efddf9014c54ea8739b97bcddb2f, type: 3}
-  alertValue: 0
-  value: 3
+  alertValue: 3
 --- !u!95 &1943829870
 Animator:
   serializedVersion: 5
