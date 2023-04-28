@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class Tent : MonoBehaviour, IPlayerTriggered
 {
+    private readonly TriggeredObjectType type = TriggeredObjectType.Default;
+
+    public TriggeredObjectType Type { get => type; }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+    
+    public GameObject GetGameObject() {
+        return gameObject;
+    }
+    
     public GameObject human;
     
     void Start()

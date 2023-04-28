@@ -91,7 +91,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1.1166667
-    functionName: GoToHomeScene
+    functionName: DieEvent
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

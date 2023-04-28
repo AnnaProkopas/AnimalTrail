@@ -31,18 +31,14 @@ public class EnergyManager : MonoBehaviour
 
     private DateTime lastChangedTime;
 
-    private readonly int restoreDuration = 2;
+    [SerializeField]
+    private int restoreDuration = 2;
 
     private bool restoring = false;
 
     private void Start() 
     {
-        // Load();
-        TotalEnergy = maxEnergy;
-        lastChangedTime = DateTime.Now;
-        nextEnergyTime = AddDuration(DateTime.Now, restoreDuration * 2);
-
-        StartCoroutine(RestoreRoutine());
+        Restart(maxEnergy);
     }
 
     private IEnumerator RestoreRoutine() 
@@ -91,14 +87,6 @@ public class EnergyManager : MonoBehaviour
     {
         return time.AddSeconds(duration);
     }
-
-    // private void Load() {
-    //     TotalEnergy = PlayerPrefs.GetInt("TotalEnergy", maxEnergy);
-    // }
-
-    // private void Save() {
-    //     PlayerPrefs.SetInt("TotalEnergy", TotalEnergy);
-    // }
 
     public void Add(int value) 
     {
@@ -149,6 +137,16 @@ public class EnergyManager : MonoBehaviour
         lastChangedTime = DateTime.Now;
         nextEnergyTime = AddDuration(DateTime.Now, restoreDuration * 2);
         
+        StartCoroutine(RestoreRoutine());
+    }
+
+    public void Restart(int currentEnergy)
+    {
+        TotalEnergy = currentEnergy;
+        textEnergy.HiddenChange(currentEnergy);
+        lastChangedTime = DateTime.Now;
+        nextEnergyTime = AddDuration(DateTime.Now, restoreDuration * 2);
+
         StartCoroutine(RestoreRoutine());
     }
 }

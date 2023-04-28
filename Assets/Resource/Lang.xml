@@ -6,6 +6,12 @@
       <ru>Звериная тропа</ru>
     </Translations>
   </Record>
+  <Record Name="Home_continue_button_key">
+    <Translations>
+      <en-us>continue</en-us>
+      <ru>продолжить</ru>
+    </Translations>
+  </Record>
   <Record Name="Home_start_button_key">
     <Translations>
       <en-us>start</en-us>

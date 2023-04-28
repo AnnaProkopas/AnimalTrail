@@ -1,11 +1,12 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public delegate CollisionResult AttackDelegate();
+    public delegate void AttackDelegate(Player player);
 
     public AttackDelegate onAttack;
     
@@ -16,9 +17,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Points healthText;
     [SerializeField]
-    private Text foodCounterText;
+    private Text currentScoreText;
     [SerializeField]
     private EnergyManager energy;
+    
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -28,9 +30,14 @@ public class Player : MonoBehaviour
     private Vector2 movement;
     private int lastDirectionX = 0;
 
-    private int foodCounter = 0;
+    private int currentScore = 0;
     private int recordValueForFoodCounter;
     private int health = 10;
+
+    public int Health { get => health; }
+    public int Energy { get => energy.GetEnergyValue(); }
+    public int Score { get => currentScore; }
+    public PlayerState State { get => currentState; }
 
     private const int MaxHealth = 10;
 
@@ -84,6 +91,7 @@ public class Player : MonoBehaviour
         IPlayerTriggered otherObject = other.gameObject.GetComponent<IPlayerTriggered>();
         if (otherObject != null) 
         {
+            Debug.Log((otherObject.Type));
             otherObject.OnPlayerTriggerEnter(this, currentState);
         }
     }
@@ -99,9 +107,9 @@ public class Player : MonoBehaviour
 
     private void IncreaseFoodCounter() 
     {
-        foodCounter++;
-        recordValueForFoodCounter = Math.Max(foodCounter, recordValueForFoodCounter);
-        foodCounterText.text = foodCounter + (recordValueForFoodCounter > foodCounter ? ("(" + recordValueForFoodCounter + ")") : "");
+        currentScore++;
+        recordValueForFoodCounter = Math.Max(currentScore, recordValueForFoodCounter);
+        currentScoreText.text = currentScore + (recordValueForFoodCounter > currentScore ? ("(" + recordValueForFoodCounter + ")") : "");
         // PlayerRatingService.SetRecordFoodCounter(recordValueForFoodCounter);
     }
 
@@ -144,7 +152,7 @@ public class Player : MonoBehaviour
         return rb.position;
     }
 
-    public void GoToHomeScene() 
+    public void DieEvent() 
     {
         // switch (currentState)
         // {
@@ -155,16 +163,27 @@ public class Player : MonoBehaviour
         //         break;
         // }
 
-        PlayerRatingService.AddRecord(foodCounter);
-        Destroy(this.gameObject);
-        SceneManager.LoadScene (0);
+        PlayerRatingService.AddRecord(currentScore);
+        Destroy(gameObject);
+        GameLevelNavigation.GameOver();
     }
 
-    public void Eat(int energyPoints, int healthPoints) 
+    private void Eat(int energyPoints, int healthPoints)
     {
         energy.Add(energyPoints);
-        ChangeHealth((healthPoints));
+        ChangeHealth(healthPoints);
+        SoundEffectHelper.instance.MakeEatSound();
+    }
+    
+    public void EatHealthyFood(int energyPoints, int healthPoints)
+    {
+        Eat(energyPoints, healthPoints); 
         IncreaseFoodCounter();
+    }
+    
+    public void EatJunkFood(int energyPoints, int healthPoints)
+    {
+        Eat(energyPoints, healthPoints); 
     }
 
     public void OnEnergyIsOver()
@@ -188,13 +207,23 @@ public class Player : MonoBehaviour
         IfNotDyingSetState(PlayerState.Attack);
         if (onAttack != null)
         {
-            CollisionResult result = onAttack.Invoke();
-            Eat(result.energyPoints, result.healthPoints);
+            onAttack.Invoke(this);
+            // Eat(result.energyPoints, result.healthPoints);
         }
     }
 
     public void DisableAttackMode()
     {
         IfNotDyingSetState(PlayerState.Idle);
+    }
+
+    public void UpdateOnLevelLoad(Vector3 position, int loadedHealth, int loadedEnergy, int score, int humanPoints, PlayerState state)
+    {
+        transform.position = position;
+        health = loadedHealth;
+        healthText.HiddenChange(loadedHealth);
+        energy.Restart(loadedEnergy);
+        currentScore = score;
+        currentState = state;
     }
 }

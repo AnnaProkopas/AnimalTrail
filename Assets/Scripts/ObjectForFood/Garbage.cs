@@ -7,7 +7,18 @@ public class Garbage : MonoBehaviour, IPlayerTriggered
     [SerializeField]
     public int healthPoints = -3;
 
-    private TriggeredObjectType type = TriggeredObjectType.Garbage;
+    private readonly TriggeredObjectType type = TriggeredObjectType.Garbage;
+
+    public TriggeredObjectType Type { get => type; }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+    
+    public GameObject GetGameObject() {
+        return gameObject;
+    }
 
     public void OnPlayerTriggerEnter(Player player, PlayerState playerState) 
     {
@@ -17,7 +28,7 @@ public class Garbage : MonoBehaviour, IPlayerTriggered
             case PlayerState.Dying:
                 break;
             case PlayerState.Attack:
-                player.Eat(energyPoints, healthPoints);
+                player.EatJunkFood(energyPoints, healthPoints);
                 Destroy(gameObject);
                 break;
             default:
@@ -31,13 +42,10 @@ public class Garbage : MonoBehaviour, IPlayerTriggered
         player.onAttack -= OnAttack;
     }
 
-    private CollisionResult OnAttack()
+    private void OnAttack(Player player)
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
 
-        CollisionResult res = new CollisionResult();
-        res.healthPoints = healthPoints;
-        res.energyPoints = energyPoints;
-        return res;
+        player.EatJunkFood(energyPoints, healthPoints);
     }
 }

@@ -4,7 +4,19 @@ public class CarSnackSpawner : MonoBehaviour, IPlayerTriggered
 {
     public GameObject cake;
 
-    private TriggeredObjectType type = TriggeredObjectType.CarFoodSpawner;
+    private readonly TriggeredObjectType type = TriggeredObjectType.CarFoodSpawner;
+
+    public TriggeredObjectType Type { get => type; }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
+    public GameObject GetGameObject()
+    {
+        return gameObject;
+    }
 
     public void OnPlayerTriggerEnter(Player player, PlayerState playerState)
     {

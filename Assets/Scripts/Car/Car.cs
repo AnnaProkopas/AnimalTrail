@@ -2,7 +2,18 @@ using UnityEngine;
 
 public class Car : MovableObject, IPlayerTriggered, INPCAnimalTriggered
 {
-    private TriggeredObjectType type = TriggeredObjectType.Car;
+    private readonly TriggeredObjectType type = TriggeredObjectType.Car;
+
+    public TriggeredObjectType Type { get => type; }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+    
+    public GameObject GetGameObject() {
+        return gameObject;
+    }
 
     public void OnPlayerTriggerEnter(Player player, PlayerState playerState) 
     {

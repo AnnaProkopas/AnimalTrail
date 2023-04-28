@@ -2,6 +2,19 @@ using UnityEngine;
 
 public class Mouse : MovableObject, IPlayerTriggered
 {
+    private readonly TriggeredObjectType type = TriggeredObjectType.Mouse;
+
+    public TriggeredObjectType Type { get => type; }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+    
+    public GameObject GetGameObject() {
+        return gameObject;
+    }
+
     [SerializeField]
     private Animator animator;
     [SerializeField]
@@ -12,15 +25,13 @@ public class Mouse : MovableObject, IPlayerTriggered
     Vector2 directionSign;
     float currentSpeed = 0;
 
-    private TriggeredObjectType type = TriggeredObjectType.Mouse;
-
     public void OnPlayerTriggerEnter(Player player, PlayerState playerState) 
     {
         switch (playerState)
         {
             case PlayerState.Attack:
-                player.Eat(energyPoints, healthPoints);
-                Destroy(this.gameObject);
+                player.EatHealthyFood(energyPoints, healthPoints);
+                Destroy(gameObject);
                 break;
             default:
                 RunAwayFrom(player.GetPosition());
@@ -59,13 +70,15 @@ public class Mouse : MovableObject, IPlayerTriggered
         currentSpeed = speed;
     }
 
-    private CollisionResult OnAttack()
+    private void OnAttack(Player player)
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
 
-        CollisionResult res = new CollisionResult();
-        res.healthPoints = healthPoints;
-        res.energyPoints = energyPoints;
-        return res;
+        player.EatHealthyFood(energyPoints, healthPoints);
+        // CollisionResult res = new CollisionResult();
+        // res.healthPoints = healthPoints;
+        // res.energyPoints = energyPoints;
+        // res.type = type;
+        // return res;
     }
 }

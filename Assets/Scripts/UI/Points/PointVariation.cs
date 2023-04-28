@@ -13,6 +13,6 @@ public class PointVariation : MonoBehaviour
     }
     
     void Start () {
-        Destroy (gameObject, animator.GetCurrentAnimatorStateInfo(0).length + 20); 
+        Destroy (gameObject, animator.GetCurrentAnimatorStateInfo(0).length + 5); 
     }
 }

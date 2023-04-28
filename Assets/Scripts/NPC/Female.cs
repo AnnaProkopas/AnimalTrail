@@ -3,6 +3,19 @@ using UnityEngine;
 
 public class Female : MonoBehaviour, IPlayerTriggered
 {
+    private readonly TriggeredObjectType type = TriggeredObjectType.Default;
+
+    public TriggeredObjectType Type { get => type; }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+    
+    public GameObject GetGameObject() {
+        return gameObject;
+    }
+    
     [SerializeField] 
     private Animator animator;
     [SerializeField]
@@ -71,13 +84,9 @@ public class Female : MonoBehaviour, IPlayerTriggered
         player.onAttack -= OnAttack;
     }
 
-    private CollisionResult OnAttack()
+    private void OnAttack(Player player)
     {
         state = FemaleState.Cry;
-        CollisionResult res = new CollisionResult();
-        res.healthPoints = 0;
-        res.energyPoints = 0;
-        return res;
     }
 
     private void Spawn(Vector2 position) 

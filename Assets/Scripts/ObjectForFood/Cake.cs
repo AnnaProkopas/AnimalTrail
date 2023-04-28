@@ -7,7 +7,18 @@ public class Cake : MonoBehaviour, IPlayerTriggered
     [SerializeField]
     public int healthPoints = -1;
 
-    private TriggeredObjectType type = TriggeredObjectType.Cake;
+    private readonly TriggeredObjectType type = TriggeredObjectType.Cake;
+
+    public TriggeredObjectType Type { get => type; }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+    
+    public GameObject GetGameObject() {
+        return gameObject;
+    }
 
     public void OnPlayerTriggerEnter(Player player, PlayerState playerState) 
     {
@@ -17,7 +28,7 @@ public class Cake : MonoBehaviour, IPlayerTriggered
             case PlayerState.Dying:
                 break;
             default:
-                player.Eat(energyPoints, healthPoints);
+                player.EatJunkFood(energyPoints, healthPoints);
                 Destroy(gameObject);
                 break;
         }

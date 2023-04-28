@@ -18,13 +18,13 @@ public class Points : MonoBehaviour
         if (variation > 0)
         {
             var copyObject = Instantiate(incObject, rectTransform.position, Quaternion.identity);
-            copyObject.transform.parent = rectTransform;
+            copyObject.transform.SetParent(rectTransform);
             copyObject.UpdateText(variation.ToString());
         }
         else if (variation < 0)
         {
             var copyObject = Instantiate(decObject, rectTransform.position, Quaternion.identity);
-            copyObject.transform.parent = gameObject.transform;
+            copyObject.transform.SetParent(rectTransform);
             copyObject.UpdateText((-1 * variation).ToString());
         }
 

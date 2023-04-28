@@ -47,12 +47,6 @@ public class PlayerRatingService
         instance.scoreRecordList.Add(score);
         
         UpdateScoreList();
-
-        int count = PlayerPrefs.GetInt(RatingListCountField, 0);
-        if (count > 0)
-        {
-            ClearDeprecated(count);
-        }
     }
 
     private static void UpdateScoreList()
@@ -61,31 +55,6 @@ public class PlayerRatingService
         wrapper.Items = instance.scoreRecordList.ToArray();
         string json = JsonUtility.ToJson(wrapper);
         PlayerPrefs.SetString(ScoreListField, json);
-    }
-
-    private static void ClearDeprecated(int count)
-    {
-        if (instance.scoreRecordList.Count == 0)
-        {
-            List<ScoreRecord> list = new List<ScoreRecord>();
-            
-            for (int i = 0; i < count; i++)
-            {
-                var score = new ScoreRecord(PlayerPrefs.GetInt(RatingValuePrefixField + i), PlayerPrefs.GetString(RatingDatePrefixField + i));
-                list.Add(score);
-            }
-
-            instance.scoreRecordList = list;
-            UpdateScoreList();
-        }
-
-        for (int i = 0; i < count; i++)
-        {
-            PlayerPrefs.DeleteKey(RatingValuePrefixField + i);
-            PlayerPrefs.DeleteKey(RatingDatePrefixField + i);
-        }
-
-        PlayerPrefs.DeleteKey(RatingListCountField);
     }
     
     public static List<ScoreRecord> GetScoreRecords()
@@ -97,12 +66,6 @@ public class PlayerRatingService
             if (wrapper.Items != null)
             {
                 instance.scoreRecordList = new List<ScoreRecord>(wrapper.Items);
-            }
-
-            int count = PlayerPrefs.GetInt(RatingListCountField, 0);
-            if (count > 0)
-            {
-                ClearDeprecated(count);
             }
         }
 
